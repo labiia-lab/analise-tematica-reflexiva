@@ -1,71 +1,67 @@
 # Análise Temática Reflexiva
 
-Skill pública em português para conduzir **Análise Temática Reflexiva (ATR)** com agentes de IA, com foco em rigor metodológico, verificação literal de extratos, trilha de auditoria, visualizações e saída final reutilizável.
+Skill pública em português para conduzir **Análise Temática Reflexiva (ATR)**
+com agentes de IA. O pacote foi desenhado para executar uma análise autônoma
+completa quando solicitado, mantendo rastreabilidade suficiente para revisão,
+contestação, complementação e validação humana.
 
-Todo o conteúdo deste repositório está licenciado sob **Creative Commons Attribution 4.0 International (CC BY 4.0)**. Consulte [LICENSE](LICENSE).
+## O que a skill faz
 
-## O que esta skill faz
+- organiza F0–F6: constituição, familiarização, codificação, temas candidatos,
+  contestação, definição e relatório;
+- constrói temas como padrões de significado, sem tratar frequência ou domínio
+  temático como tema por si só;
+- exige uma rival interpretativa forte, condições de derrota e resíduos
+  experienciais;
+- separa cobertura, evidência, contestação, participação humana, validação e
+  prontidão no estatuto final;
+- verifica literalmente os excertos publicados quando o corpus acessível
+  permite;
+- registra proveniência, delegação de IA, limites, privacidade e intervenções;
+- oferece rotas autônoma, por checkpoints, de início humano e paralela cega.
 
-- conduz ATR em 7 fases obrigatórias, da decisão metodológica ao relatório final;
-- bloqueia atalhos metodológicos comuns, como pular familiarização ou aceitar temas que são apenas resumos de domínio;
-- exige extratos literais verificáveis;
-- fornece templates para cada fase analítica;
-- inclui scripts Python para gerar diagramas, tabelas e DOCX de apoio;
-- traz cenários adversariais e testes executáveis para validar o comportamento da skill.
+A skill não transforma uma execução de IA em validação humana, consenso,
+triangulação ou aprovação ética. Esses estatutos precisam ser declarados de
+acordo com o que realmente ocorreu.
 
-## Para quem serve
+## Estrutura
 
-- pesquisadoras e pesquisadores que trabalham com entrevistas, grupos focais, documentos, diários e outros dados qualitativos;
-- equipes que desejam usar agentes de IA sem abrir mão de checkpoints metodológicos claros;
-- laboratórios e grupos de pesquisa que querem reaproveitar uma skill ATR já documentada e testada.
+- `SKILL.md`: contrato principal da execução.
+- `referencias/`: sete documentos metodológicos carregados progressivamente.
+- `templates/`: um template para cada fase F0–F6.
+- `scripts/verificar_citacoes.py`: inventário do corpus e verificação literal
+  de citações, usando apenas a biblioteca padrão do Python.
+- `testes/`: 21 cenários adversariais e testes de integridade.
 
-## Estrutura do repositório
+## Instalação
 
-- `SKILL.md`: instrução principal da skill.
-- `agents/`: metadados para integração com agentes.
-- `referencias/`: referências metodológicas e regras de visualização.
-- `templates/`: modelos de saída por fase.
-- `scripts/`: utilitários Python para diagramas e geração de artefatos.
-- `testes/`: suíte de testes executáveis e cenários adversariais.
+Clone ou copie o conteúdo deste repositório para o diretório de skills do seu
+agente, preservando `SKILL.md` na raiz da pasta. O caminho de descoberta varia
+entre ambientes; OpenCode, por exemplo, pode carregar a pasta local em
+`.agents/skills/analise-tematica-reflexiva/`. Não é necessário conhecimento de
+programação para executar a análise.
 
-## Como instalar
+## Validação local
 
-Copie a pasta deste repositório para a pasta de skills do seu ambiente. Exemplos comuns:
-
-- `$CODEX_HOME/skills/analise-tematica-reflexiva`
-- `~/.agents/skills/analise-tematica-reflexiva`
-
-Se o seu ambiente usa outra convenção, mantenha a estrutura interna do repositório intacta.
-
-## Dependências dos scripts
-
-Instale as dependências Python listadas em `requirements.txt`.
-
-Exemplo:
-
-```bash
-pip install -r requirements.txt
-```
-
-## Como validar
-
-Rode os checks abaixo a partir da raiz do repositório:
+A partir da raiz do repositório:
 
 ```bash
-python -m py_compile scripts/gerar_diagramas.py scripts/gerar_saida_final.py
-python -m unittest testes.test_scripts
+python -m py_compile scripts/verificar_citacoes.py
+python -m unittest discover -s testes -p "test_*.py"
 ```
 
-Se você usa esta skill dentro de um ambiente com validador próprio de skills, rode também a validação nativa desse ambiente.
+O script de citações não substitui leitura qualitativa nem julgamento humano.
+Os cenários comportamentais tornam falhas observáveis, mas não constituem
+prova automática de validade científica.
 
 ## Como citar
 
-Citação preferencial:
+> Sampaio, Rafael. *Análise Temática Reflexiva*. Skill para agentes de IA.
+> 2026. https://github.com/labiia-lab/analise-tematica-reflexiva
 
-> Sampaio, Rafael. Análise Temática Reflexiva. Skill para agentes de codificação. 2026. Disponível em: https://github.com/labiia-lab/analise-tematica-reflexiva
-
-O repositório também inclui `CITATION.cff`, para permitir citação estruturada pela interface do GitHub.
+Consulte também `CITATION.cff`.
 
 ## Licença
 
-Este repositório é distribuído sob a licença **Creative Commons Attribution 4.0 International (CC BY 4.0)**.
+Creative Commons Attribution 4.0 International (CC BY 4.0). Consulte
+[`LICENSE`](LICENSE).
