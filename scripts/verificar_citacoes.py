@@ -12,6 +12,7 @@ from pathlib import Path
 
 
 REQUIRED = ("citation_id", "text", "source", "declared_locator")
+SIMILAR_THRESHOLD = 0.80
 
 
 def locators(text: str, needle: str) -> list[str]:
@@ -29,8 +30,105 @@ def normalized(value: str) -> str:
     return re.sub(r"\s+", " ", value).strip()
 
 
+def normalized_pattern(value: str) -> re.Pattern[str] | None:
+    words = normalized(value).lower().split()
+    if not words:
+        return None
+    return re.compile(r"\s+".join(re.escape(word) for word in words), re.IGNORECASE)
+
+
+def similar_search(needle: str, text: str) -> tuple[float, str, int]:
+    from difflib import SequenceMatcher
+
+    best_score, best_seg, best_pos = 0.0, "", 0
+    lines = text.splitlines()
+    offsets: list[int] = []
+    acc = 0
+    for line in lines:
+        offsets.append(acc)
+        acc += len(line) + 1
+    for i in range(len(lines)):
+        for size in range(1, 6):
+            fim_i = i + size
+            if fim_i > len(lines):
+                break
+            seg = "\n".join(lines[i:fim_i])
+            score = SequenceMatcher(None, needle, seg).ratio()
+            if score > best_score:
+                best_score, best_seg, best_pos = score, seg, offsets[i]
+    return best_score, best_seg, best_pos
+
+
 def sha256(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
+
+
+def corpus_files(base: Path) -> list[Path]:
+    if not base.is_dir():
+        return []
+    return sorted((p for p in base.rglob("*") if p.is_file()), key=lambda p: p.as_posix())
+
+
+def decode(raw: bytes) -> str | None:
+    try:
+        return raw.decode("utf-8-sig")
+    except UnicodeDecodeError:
+        return None
+
+
+def relocate(
+    needle: str, base: Path, declared: Path
+) -> dict[str, object] | None:
+    """Busca normalizada (caixa, espacos, quebras, prefixos) em todos os arquivos.
+
+    A fonte declarada pode estar errada: o trecho pode existir em outro arquivo
+    ou com diferencas de superficie (espaco duplo, caixa alta, prefixo de
+    locutor no inicio da linha, truncamento). Isso nao significa ausencia.
+    """
+    pattern = normalized_pattern(needle)
+    if pattern is None:
+        return None
+    for path in corpus_files(base):
+        if path.resolve() == declared.resolve():
+            continue
+        text = decode(path.read_bytes())
+        if text is None:
+            continue
+        match = pattern.search(text)
+        if match is None:
+            continue
+        exact = text[match.start() : match.end()]
+        found = locators(text, exact)
+        return {
+            "relocated_source": path.relative_to(base).as_posix(),
+            "relocated_locator": found[0] if found else "",
+            "candidate_exact": exact,
+            "relocated_sha256": sha256(path.read_bytes()),
+            "metodo": "normalizado",
+        }
+    return None
+
+
+def suggest(needle: str, base: Path) -> dict[str, object] | None:
+    """Melhor trecho similar para substituicao (>= 0.80)."""
+    best: dict[str, object] | None = None
+    for path in corpus_files(base):
+        text = decode(path.read_bytes())
+        if text is None:
+            continue
+        score, seg, pos = similar_search(needle, text)
+        if best is None or score > best["similaridade"]:
+            found = locators(text, seg)
+            best = {
+                "similaridade": round(score, 3),
+                "suggested_source": path.relative_to(base).as_posix(),
+                "suggested_locator": found[0] if found else "",
+                "suggested_text": seg,
+                "metodo": "similar",
+            }
+    if best is None or best["similaridade"] < SIMILAR_THRESHOLD:
+        return None
+    return best
 
 
 def inventory(base: Path, output: Path) -> tuple[list[dict[str, object]], bool]:
@@ -120,14 +218,49 @@ def verify(record: object, base: Path) -> tuple[dict[str, object], bool]:
             result["status"] = "exact_locator_mismatch"
         else:
             result["status"] = "verified_exact"
-    elif len(matches) > 1:
+        return result, True
+    if len(matches) > 1:
         result["status"] = (
             "verified_exact" if declared in matches else "exact_multiple_needs_locator"
         )
-    elif normalized(record["text"]) in normalized(text):
-        result["status"] = "normalized_candidate_not_verified"
-    else:
-        result["status"] = "not_found"
+        return result, True
+
+    # Passo 2: relocalizacao por texto normalizado (caixa/espacos/quebras/prefixos)
+    pattern = normalized_pattern(record["text"])
+    if pattern is not None:
+        match = pattern.search(text)
+        if match is not None:
+            exact = text[match.start() : match.end()]
+            found = locators(text, exact)
+            result.update(
+                status="relocalizado",
+                relocated_source=record["source"],
+                relocated_locator=found[0] if found else "",
+                candidate_exact=exact,
+                relocated_sha256=result.get("source_sha256", ""),
+                metodo="normalizado",
+            )
+            return result, True
+
+    relocated = relocate(record["text"], base, source)
+    if relocated is not None:
+        result.update(status="relocalizado", **relocated)
+        return result, True
+
+    # Passo 3: substituicao pelo trecho similar mais proximo
+    suggested = suggest(record["text"], base)
+    if suggested is not None:
+        result["status"] = "substituir"
+        result["trecho_original"] = record["text"]
+        result.update(
+            similaridade=suggested["similaridade"],
+            suggested_source=suggested["suggested_source"],
+            suggested_locator=suggested["suggested_locator"],
+            suggested_text=suggested["suggested_text"],
+        )
+        return result, True
+
+    result["status"] = "not_found"
     return result, True
 
 
