@@ -1,5 +1,9 @@
 # F4 — Contestação e revisão
 
+**REGRA OBRIGATÓRIA — Orçamento temático:**
+Regra de orçamento temático: a análise deve convergir para 4-8 temas finais. Nunca abaixo de 4. Acima de 8, apenas com boa justificativa explícita. Com 10 ou mais temas, tentar agregar da maneira mais substantiva possível para chegar a 8 ou menos, agrupando por significado compartilhado, e não por contagem ou conveniência.
+
+
 ## 1. Configuração da rodada
 
 - nível: Essencial | Aprofundado

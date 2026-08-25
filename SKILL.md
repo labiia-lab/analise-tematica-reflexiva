@@ -217,6 +217,8 @@ Preencher `templates/fase-4-revisao/revisao-temas.md`.
 Produzir a melhor rival disponível, registrar seu estatuto e comparar argumentos sem votação ou concordância. Testar coerência, distinção, cobertura, tensão, resíduo experiencial e as condições registradas em F3. Registrar manter, revisar, dividir, fundir ou abandonar. Se nenhum tema for abandonado ou fundido substantivamente, explicar por tema por que a rival e a evidência não satisfizeram sua condição prévia de enfraquecimento ou derrota.
 
 **Saída:** `04-contestacao-e-revisao.md`.
+Regra de orçamento temático: a análise deve convergir para 4-8 temas finais. Nunca abaixo de 4. Acima de 8, apenas com boa justificativa explícita. Com 10 ou mais temas, tentar agregar da maneira mais substantiva possível para chegar a 8 ou menos, agrupando por significado compartilhado, e não por contagem ou conveniência.
+
 
 **Gate:** `PASS` somente quando houver rival material, evidência auditada e mudança ou recusa justificada. Contestação `ausente` é `FAIL`; contestação `informada` pode passar, mas não virar independente.
 
