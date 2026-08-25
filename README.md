@@ -16,7 +16,9 @@ contestação, complementação e validação humana.
 - separa cobertura, evidência, contestação, participação humana, validação e
   prontidão no estatuto final;
 - verifica literalmente os excertos publicados quando o corpus acessível
-  permite;
+  permite, relocalizando citações com diferenças de superfície (caixa,
+  espaços, prefixos de locutor, fonte declarada errada) e sugerindo
+  substituição pelo trecho exato antes de declarar a não ocorrência;
 - registra proveniência, delegação de IA, limites, privacidade e intervenções;
 - oferece rotas autônoma, por checkpoints, de início humano e paralela cega.
 
@@ -27,7 +29,8 @@ acordo com o que realmente ocorreu.
 ## Estrutura
 
 - `SKILL.md`: contrato principal da execução.
-- `referencias/`: sete documentos metodológicos carregados progressivamente.
+- `referencias/`: documentos metodológicos carregados progressivamente
+  (fundamentação, hierarquia, qualidade, confiabilidade, IA em ATR etc.).
 - `templates/`: um template para cada fase F0–F6.
 - `scripts/verificar_citacoes.py`: inventário do corpus e verificação literal
   de citações, usando apenas a biblioteca padrão do Python.
@@ -40,6 +43,12 @@ agente, preservando `SKILL.md` na raiz da pasta. O caminho de descoberta varia
 entre ambientes; OpenCode, por exemplo, pode carregar a pasta local em
 `.agents/skills/analise-tematica-reflexiva/`. Não é necessário conhecimento de
 programação para executar a análise.
+
+```bash
+git clone --depth 1 https://github.com/labiia-lab/analise-tematica-reflexiva.git
+# copie a pasta resultante para o diretório de skills do agente, preservando
+# SKILL.md na raiz (ex.: .agents/skills/analise-tematica-reflexiva/)
+```
 
 ## Validação local
 
