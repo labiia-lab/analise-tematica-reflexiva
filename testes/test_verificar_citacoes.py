@@ -107,7 +107,7 @@ class VerificarCitacoesTest(unittest.TestCase):
             [row["status"] for row in rows],
             [
                 "exact_multiple_needs_locator",
-                "normalized_candidate_not_verified",
+                "relocalizado",
                 "not_found",
                 "source_missing",
                 "exact_locator_mismatch",
