@@ -63,10 +63,14 @@ def sha256(raw: bytes) -> str:
     return hashlib.sha256(raw).hexdigest()
 
 
-def corpus_files(base: Path) -> list[Path]:
+def corpus_files(base: Path, exclude: frozenset[Path] = frozenset()) -> list[Path]:
     if not base.is_dir():
         return []
-    return sorted((p for p in base.rglob("*") if p.is_file()), key=lambda p: p.as_posix())
+    excluded = {p.resolve() for p in exclude}
+    return sorted(
+        (p for p in base.rglob("*") if p.is_file() and p.resolve() not in excluded),
+        key=lambda p: p.as_posix(),
+    )
 
 
 def decode(raw: bytes) -> str | None:
@@ -77,7 +81,7 @@ def decode(raw: bytes) -> str | None:
 
 
 def relocate(
-    needle: str, base: Path, declared: Path
+    needle: str, base: Path, declared: Path, exclude: frozenset[Path] = frozenset()
 ) -> dict[str, object] | None:
     """Busca normalizada (caixa, espacos, quebras, prefixos) em todos os arquivos.
 
@@ -88,7 +92,7 @@ def relocate(
     pattern = normalized_pattern(needle)
     if pattern is None:
         return None
-    for path in corpus_files(base):
+    for path in corpus_files(base, exclude):
         if path.resolve() == declared.resolve():
             continue
         text = decode(path.read_bytes())
@@ -109,10 +113,12 @@ def relocate(
     return None
 
 
-def suggest(needle: str, base: Path) -> dict[str, object] | None:
+def suggest(
+    needle: str, base: Path, exclude: frozenset[Path] = frozenset()
+) -> dict[str, object] | None:
     """Melhor trecho similar para substituicao (>= 0.80)."""
     best: dict[str, object] | None = None
-    for path in corpus_files(base):
+    for path in corpus_files(base, exclude):
         text = decode(path.read_bytes())
         if text is None:
             continue
@@ -161,7 +167,9 @@ def inventory(base: Path, output: Path) -> tuple[list[dict[str, object]], bool]:
     return rows, True
 
 
-def verify(record: object, base: Path) -> tuple[dict[str, object], bool]:
+def verify(
+    record: object, base: Path, exclude: frozenset[Path] = frozenset()
+) -> tuple[dict[str, object], bool]:
     if (
         not isinstance(record, dict)
         or any(key not in record or not isinstance(record[key], str) for key in REQUIRED)
@@ -242,13 +250,13 @@ def verify(record: object, base: Path) -> tuple[dict[str, object], bool]:
             )
             return result, True
 
-    relocated = relocate(record["text"], base, source)
+    relocated = relocate(record["text"], base, source, exclude)
     if relocated is not None:
         result.update(status="relocalizado", **relocated)
         return result, True
 
     # Passo 3: substituicao pelo trecho similar mais proximo
-    suggested = suggest(record["text"], base)
+    suggested = suggest(record["text"], base, exclude)
     if suggested is not None:
         result["status"] = "substituir"
         result["trecho_original"] = record["text"]
@@ -284,6 +292,7 @@ def main() -> int:
     if args.base is None:
         parser.error("--base é obrigatório com --input")
 
+    exclude = frozenset({args.input.resolve(), args.output.resolve()})
     results: list[dict[str, object]] = []
     invalid = False
     try:
@@ -295,7 +304,7 @@ def main() -> int:
                 record: object = json.loads(line)
             except json.JSONDecodeError as exc:
                 record = {"citation_id": "", "_error": str(exc)}
-            result, valid = verify(record, args.base)
+            result, valid = verify(record, args.base, exclude)
             if not valid:
                 invalid = True
                 result["input_line"] = line_number
