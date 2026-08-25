@@ -1,156 +1,87 @@
-# Notas de Familiarização
+# F1 — Familiarização
 
-**Sessão:** [nome-da-sessao]
-**Data:** [AAAA-MM-DD]
-**Fase:** 1 — Familiarização com os Dados
-**Analista:** [nome]
+## 1. Reconciliação do corpus
 
----
+Manifesto de identidade: `manifesto-corpus.jsonl`
 
-## 1. Descrição do Dataset
+| ID | Fonte/hash no manifesto | Percorrida integralmente? | Unidades/intervalo | Lote | Memo | Evidência de processamento | Problema de acesso |
+|---|---|---|---|---|---|---|---|
+| F01 |  |  |  |  |  |  |  |
 
-**Tipo de dados:** [entrevistas / grupos focais / documentos / observações / outro]
+- Cobertura alcançada:
+- Fontes não lidas e motivo:
+- Consequência para o estatuto:
 
-**Quantidade de itens:**
-- Total de arquivos/transcrições: [N]
-- Total estimado de páginas/palavras: [N]
+O manifesto comprova quais bytes foram inventariados, não prova leitura. A evidência de processamento reúne memos, intervalos e lotes para tornar a alegação reconferível; não a transforma em validação independente.
 
-**Contexto de coleta:**
-[Quando, onde, com quem, por quê foram coletados esses dados]
+## 2. Memo por fonte
 
-**Questão de pesquisa orientadora:**
-[Qual pergunta esta análise busca responder]
+### [ID/fonte]
 
----
+- contexto necessário;
+- movimentos, acontecimentos ou argumentos;
+- hesitações, contradições e mudanças de posição;
+- linguagem situada ou metáforas;
+- relação inicial com a pergunta;
+- ideias provisórias de código;
+- dúvidas que exigem retorno.
 
-## 2. Processo de Leitura
+[Repetir por fonte ou lote, sem transformar o memo em resumo mecânico.]
 
-**Data de início da leitura:** [AAAA-MM-DD]
-**Data de conclusão da leitura:** [AAAA-MM-DD]
+## 3. Síntese transversal
 
-**Ordem de leitura:**
-1. [Arquivo 1 — breve nota sobre o item]
-2. [Arquivo 2 — breve nota sobre o item]
-3. [Continue para todos os itens do dataset]
+- padrões iniciais;
+- diferenças relevantes;
+- tensões;
+- ausências observáveis, sem inferir silêncios não documentados;
+- elementos inesperados;
+- questões que mudaram durante a leitura.
 
-**Leituras realizadas:**
-- [ ] Primeira leitura completa — concluída em [data]
-- [ ] Segunda leitura (se necessário) — concluída em [data]
+## 4. Primeiros resíduos possíveis
 
----
-
-## 3. Observações Iniciais
-
-*Registre impressões, não códigos. O objetivo é imersão, não categorização.*
-
-### 3.1 Tendências Percebidas
-
-[O que aparece repetidamente? Que padrões preliminares você percebe?]
-
-- **Tendência 1 — [Nome da tendência]:** [descrição]
-- **Tendência 2 — [Nome da tendência]:** [descrição]
-- **Tendência 3 — [Nome da tendência]:** [descrição]
-
-### 3.2 Aspectos Surpreendentes
-
-[O que contrariou suas expectativas iniciais?]
-
-- **Surpresa 1 — [Nome da surpresa]:** [descrição — por que surpreendeu?]
-- **Surpresa 2 — [Nome da surpresa]:** [descrição — por que surpreendeu?]
-
-### 3.3 Perguntas que Surgiram
-
-[Questões que emergiram durante a leitura e merecem atenção na codificação]
-
-- Pergunta 1: [questão]
-- Pergunta 2: [questão]
-- Pergunta 3: [questão]
-
-### 3.4 Passagens de Interesse
-
-*Liste passagens que chamaram atenção — por riqueza, singularidade ou relevância. Não são os dados mais importantes, são os que merecem atenção analítica.*
-
-| Localização | Trecho (parcial) | Por que é interessante |
+| Fragmento/experiência | Por que pode ser apagado | Onde retomar |
 |---|---|---|
-| [Arquivo X, p. Y] | "[trecho curto]..." | [motivo] |
-| [Arquivo X, p. Y] | "[trecho curto]..." | [motivo] |
-| [Arquivo X, p. Y] | "[trecho curto]..." | [motivo] |
+|  |  | F2/F3/F4 |
 
----
+Não criar inventário exaustivo. Registrar somente elementos que possam alterar significado.
 
-## 4. Ideias Iniciais para Codificação
+## 5. Memo reflexivo
 
-*Estas são hipóteses iniciais, não categorias definitivas. Podem mudar completamente.*
+- como a pergunta dirigiu a atenção;
+- teorias ou hipóteses que ganharam força;
+- partes do corpus que resistem às expectativas;
+- diferenças entre familiaridade e interpretação;
+- limitações do agente ou do ambiente.
 
-- Ideia 1: [possível área de codificação]
-- Ideia 2: [possível área de codificação]
-- Ideia 3: [possível área de codificação]
-- Ideia 4: [possível área de codificação]
+## 6. Registro de interação com IA
 
----
+| ID | Fase/função | Ambiente/modelo | Objetivo e prompt sanitizado | Fontes por ID | Artefato | Verificação | Intervenção humana/efeito |
+|---|---|---|---|---|---|---|---|
+|  | F1 |  |  |  |  |  |  |
 
-## 5. Notas Reflexivas
+## 7. Gate F1
 
-*Como analista, documente como você chegou a esses dados e o que traz consigo.*
+| Requisito | PASS/FAIL/N/A | Evidência |
+|---|---|---|
+| inventário reconciliado com cobertura |  |  |
+| todas as fontes acessíveis percorridas |  |  |
+| memos contextualizados produzidos |  |  |
+| subconjunto e limitações delimitados |  |  |
 
-**O que você acreditava encontrar antes de ler os dados:**
-[Registre suas expectativas — isso é parte da transparência analítica]
+Cobertura parcial recebe `FAIL` para integralidade, ainda que o fluxo continue.
 
-**O que confirmou essas expectativas:**
-[Quais aspectos dos dados parecem confirmar o que você esperava]
+## 8. Exemplo curto
 
-**O que contradisse essas expectativas:**
-[Quais aspectos dos dados surpreenderam ou contradisseram o esperado]
+> Padrão inicial: alguns participantes fundamentam a autoridade para opinar em experiências cotidianas; outros enfatizam rastrear fontes. Tensão: dizer “não sei” pode ser lido como desinteresse ou como responsabilidade epistêmica. A interpretação permanece aberta.
 
-**Como seu entendimento está evoluindo após a leitura:**
-[Como você vê os dados agora vs. antes de lê-los]
+Ver `referencias/exemplo-integrado.md`.
 
----
+## 9. Critério de saída
 
-## 6. Resumo Geral do Dataset
-
-[Em 3-5 parágrafos, descreva o que está nos dados. Não categorize, não analise. Apenas descreva o que você leu. Este resumo orienta a codificação subsequente.]
-
----
-
-## 7. Auditoria de Profundidade da Fase
-
-**Regra para análise completa:** esta fase deve ter pelo menos 2.000 palavras, salvo corpus muito pequeno ou instrução explícita do usuário para resumir. Se ficar abaixo disso, o checkpoint deve ser marcado como NÃO PASSOU.
-
-**Contagem aproximada de palavras desta fase:** [N]
-
-**Arquivos/fontes lidos integralmente:**
-[listar todos]
-
-**Memos por fonte produzidos:**
-[indicar extensão e foco de cada memo; para entrevistas/documentos médios, mirar 300-500 palavras por fonte]
-
-**Extratos/passagens sinalizadas para retorno posterior:** [N]
-
-**Tensões, ambiguidades ou surpresas identificadas:**
-[descrever]
-
-**O que o pesquisador humano deve revisar criticamente:**
-[pontos que podem depender de conhecimento substantivo, teoria ou contexto de campo]
-
----
-
-## Checkpoint da Fase 1
-
-Antes de avançar para a Fase 2, verificar:
-
-- [ ] Todo o dataset lido ao menos uma vez completa
-- [ ] Nenhuma codificação realizada nesta fase
-- [ ] Observações iniciais registradas (seção 3)
-- [ ] Passagens de interesse identificadas (seção 3.4)
-- [ ] Ideias iniciais para codificação anotadas (seção 4)
-- [ ] Notas reflexivas produzidas (seção 5)
-- [ ] Resumo geral do dataset escrito (seção 6)
-- [ ] Auditoria de profundidade preenchida (seção 7)
-- [ ] Texto da fase tem >= 2.000 palavras ou justificativa metodológica explícita para ser menor
-- [ ] Arquivo gerado como `01-notas-familiarizacao.docx`
-
-**Status do checkpoint:** [PASSOU / NÃO PASSOU]
-
-**Se NÃO PASSOU:** Complete os itens faltantes antes de avançar para Fase 2.
-**Se PASSOU:** Avançar para Fase 2 — Geração de Códigos Iniciais.
+- [ ] Todas as fontes acessíveis foram percorridas.
+- [ ] Há memos contextualizados, não apenas resumos.
+- [ ] A síntese preserva diferenças.
+- [ ] Ideias provisórias não foram tratadas como temas finais.
+- [ ] A posição analítica foi registrada.
+- [ ] A cobertura corresponde ao inventário de F0.
+- [ ] Uma correção dirigida foi feita ou a ressalva permanece visível.

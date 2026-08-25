@@ -1,10 +1,14 @@
-import os
+#!/usr/bin/env python3
+"""Testes executáveis para scripts/verificar_citacoes.py (Python padrão)."""
+
+from __future__ import annotations
+
+import json
+import subprocess
 import sys
 import tempfile
 import unittest
 from pathlib import Path
-from unittest.mock import patch
-
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPTS = ROOT / "scripts"
@@ -12,122 +16,162 @@ sys.path.insert(0, str(SCRIPTS))
 
 
 class CitationVerificationTests(unittest.TestCase):
-    def test_exact_extract_returns_source_and_line_numbers(self):
-        from gerar_diagramas import verificar_citacoes
-
-        fontes = [
-            {
-                "fonte": "entrevista-01.txt",
-                "texto": "Primeira linha.\nEste extrato precisa ser literal.\nTerceira linha.",
-            }
-        ]
-
-        resultado = verificar_citacoes(
-            ["Este extrato precisa ser literal."],
-            fontes=fontes,
-            fuzzy=False,
+    def setUp(self) -> None:
+        self._tmp = tempfile.TemporaryDirectory()
+        self.base = Path(self._tmp.name)
+        (self.base / "entrevista-01.txt").write_text(
+            "Primeira linha.\nNa minha opinião o pior de todos. É uma falta.\n",
+            encoding="utf-8",
+        )
+        (self.base / "entrevista-02.txt").write_text(
+            "Então, o sistema eleitoral brasileiro é o melhor que tem do mundo.\n",
+            encoding="utf-8",
         )
 
-        item = resultado["Este extrato precisa ser literal."]
-        self.assertEqual(item["status"], "verificado")
-        self.assertEqual(item["fonte"], "entrevista-01.txt")
-        self.assertEqual(item["linha_inicio"], 2)
-        self.assertEqual(item["linha_fim"], 2)
-        self.assertEqual(item["trecho_correspondente"], "Este extrato precisa ser literal.")
+    def tearDown(self) -> None:
+        self._tmp.cleanup()
 
-    def test_paraphrased_extract_is_not_verified_as_literal(self):
-        from gerar_diagramas import verificar_citacoes
+    def _verify(self, record: dict) -> dict:
+        from verificar_citacoes import verify
 
-        resultado = verificar_citacoes(
-            ["extrato parafraseado"],
-            fontes=[{"fonte": "entrevista-01.txt", "texto": "O participante disse outra coisa."}],
-            fuzzy=False,
+        result, valid = verify(record, self.base)
+        self.assertTrue(valid)
+        return result
+
+    def test_exact_extract_is_verified(self) -> None:
+        result = self._verify(
+            {
+                "citation_id": "Q001",
+                "text": "o pior de todos",
+                "source": "entrevista-01.txt",
+                "declared_locator": "linha 2",
+            }
+        )
+        self.assertEqual(result["status"], "verified_exact")
+        self.assertEqual(result["computed_locators"], ["linha 2"])
+
+    def test_surface_differences_are_relocalized(self) -> None:
+        result = self._verify(
+            {
+                "citation_id": "Q002",
+                "text": "o PIOR  de   todos. É uma falta",
+                "source": "entrevista-01.txt",
+                "declared_locator": "linha 10",
+            }
+        )
+        self.assertEqual(result["status"], "relocalizado")
+        self.assertEqual(result["candidate_exact"], "o pior de todos. É uma falta")
+        self.assertEqual(result["relocated_locator"], "linha 2")
+        self.assertEqual(result["metodo"], "normalizado")
+
+    def test_truncated_extract_is_relocalized_in_another_source(self) -> None:
+        result = self._verify(
+            {
+                "citation_id": "Q003",
+                "text": "o sistema eleitoral brasileiro é o melhor que tem do mundo",
+                "source": "entrevista-01.txt",
+                "declared_locator": "linha 1",
+            }
+        )
+        self.assertEqual(result["status"], "relocalizado")
+        self.assertEqual(result["relocated_source"], "entrevista-02.txt")
+        self.assertEqual(
+            result["candidate_exact"],
+            "o sistema eleitoral brasileiro é o melhor que tem do mundo",
         )
 
-        self.assertEqual(resultado["extrato parafraseado"]["status"], "nao_encontrado")
-
-
-class FinalOutputWrapperTests(unittest.TestCase):
-    def test_trajetoria_receives_output_path(self):
-        import gerar_saida_final
-
-        with tempfile.TemporaryDirectory() as tmpdir:
-            dados = {
-                "codigos_por_documento": {"doc-1": ["codigo-a", "codigo-b"]},
-                "temas": [{"nome": "Tema A", "subtemas": []}],
-                "estado_inicial": {"temas": [{"nome": "A", "codigos": ["C1"]}]},
-                "estado_revisado": {"temas": [{"nome": "Tema A", "codigos": ["C1"]}]},
-                "relacoes": [{"de": "Tema A", "para": "Tema A", "tipo": "conexão"}],
-                "trajetoria": {"codigos_iniciais": 2, "temas_finais": 1},
-            }
-
-            def touch_output(*args, **kwargs):
-                output_path = kwargs.get("output_path")
-                if output_path is None and args:
-                    output_path = args[-1]
-                Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-                Path(output_path).write_text("<svg></svg>", encoding="utf-8")
-                return output_path
-
-            def assert_trajetoria_output_path(trajetoria, itens_por_etapa=None, output_path=None):
-                self.assertIsNotNone(output_path)
-                Path(output_path).parent.mkdir(parents=True, exist_ok=True)
-                Path(output_path).write_text("<svg></svg>", encoding="utf-8")
-                return output_path
-
-            with patch.object(gerar_saida_final, "gerar_rede_codigos", side_effect=touch_output), \
-                 patch.object(gerar_saida_final, "gerar_mapa_tematico", side_effect=touch_output), \
-                 patch.object(gerar_saida_final, "gerar_diagrama_evolucao", side_effect=touch_output), \
-                 patch.object(gerar_saida_final, "gerar_diagrama_relacoes", side_effect=touch_output), \
-                 patch.object(gerar_saida_final, "gerar_mapa_final", side_effect=touch_output), \
-                 patch.object(gerar_saida_final, "gerar_diagrama_trajetoria", side_effect=assert_trajetoria_output_path):
-                gerar_saida_final.gerar_diagramas(dados, tmpdir)
-
-
-class MarkdownVisualizationTests(unittest.TestCase):
-    def test_dot_map_and_frequency_table_are_markdown_safe(self):
-        from gerar_diagramas import gerar_dot_mapa_tematico, gerar_tabela_frequencia_markdown
-
-        temas = [
+    def test_word_drift_suggests_substitution(self) -> None:
+        result = self._verify(
             {
-                "nome": "Tema interpretativo",
-                "subtemas": [
-                    {
-                        "nome": "Subtema",
-                        "categorias": [{"nome": "Categoria", "codigos": ["codigo raro"]}],
-                    }
+                "citation_id": "Q004",
+                "text": "o nosso sistema eleitoral brasileiro é o melhor que tem do mundo",
+                "source": "entrevista-01.txt",
+                "declared_locator": "linha 1",
+            }
+        )
+        self.assertEqual(result["status"], "substituir")
+        self.assertGreaterEqual(result["similaridade"], 0.80)
+        self.assertEqual(result["suggested_source"], "entrevista-02.txt")
+        self.assertIn("sistema eleitoral brasileiro", result["suggested_text"])
+
+    def test_paraphrase_far_from_corpus_is_not_found(self) -> None:
+        result = self._verify(
+            {
+                "citation_id": "Q005",
+                "text": "extrato parafraseado desconexo do corpus",
+                "source": "entrevista-01.txt",
+                "declared_locator": "linha 1",
+            }
+        )
+        self.assertEqual(result["status"], "not_found")
+
+    def test_locator_mismatch_on_exact_text(self) -> None:
+        result = self._verify(
+            {
+                "citation_id": "Q006",
+                "text": "o pior de todos",
+                "source": "entrevista-01.txt",
+                "declared_locator": "linha 5",
+            }
+        )
+        self.assertEqual(result["status"], "exact_locator_mismatch")
+
+
+class CliSmokeTests(unittest.TestCase):
+    def test_inventory_output_is_jsonl(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            (tmp / "a.txt").write_text("linha\n", encoding="utf-8")
+            out = tmp / "manifesto.jsonl"
+            code = subprocess.run(
+                [
+                    sys.executable,
+                    str(SCRIPTS / "verificar_citacoes.py"),
+                    "--inventario",
+                    str(tmp),
+                    "--output",
+                    str(out),
                 ],
-            }
-        ]
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(code.returncode, 0)
+            rows = [json.loads(line) for line in out.read_text(encoding="utf-8-sig").splitlines()]
+            self.assertEqual(rows[0]["source"], "a.txt")
+            self.assertIn("sha256", rows[0])
 
-        dot = gerar_dot_mapa_tematico(temas)
-        tabela = gerar_tabela_frequencia_markdown({"doc-1": ["codigo raro"], "doc-2": ["codigo comum", "codigo raro"]})
-
-        self.assertTrue(dot.startswith("```dot"))
-        self.assertIn("digraph atr_mapa_tematico", dot)
-        self.assertIn("codigo raro", tabela)
-        self.assertIn("Nunca use como proxy automatico", tabela)
-
-
-class PublicRepositoryTests(unittest.TestCase):
-    def test_public_metadata_files_exist(self):
-        for relpath in [
-            "README.md",
-            "LICENSE",
-            "CITATION.cff",
-            ".gitignore",
-            "requirements.txt",
-        ]:
-            self.assertTrue((ROOT / relpath).exists(), f"Arquivo obrigatorio ausente: {relpath}")
-
-    def test_skill_documentation_has_no_private_local_paths(self):
-        skill_text = (ROOT / "SKILL.md").read_text(encoding="utf-8")
-        private_windows_prefix = "C:" + "\\" + "Users" + "\\"
-        private_codex_segment = "." + "codex"
-        private_validator_name = "quick_" + "validate.py"
-        self.assertNotIn(private_windows_prefix, skill_text)
-        self.assertNotIn(private_codex_segment, skill_text)
-        self.assertNotIn(private_validator_name, skill_text)
+    def test_full_citation_run_exit_codes(self) -> None:
+        with tempfile.TemporaryDirectory() as tmp:
+            tmp = Path(tmp)
+            (tmp / "f.txt").write_text("fala literal do participante.\n", encoding="utf-8")
+            cit = tmp / "citacoes.jsonl"
+            cit.write_text(
+                json.dumps(
+                    {"citation_id": "Q1", "text": "fala literal do participante",
+                     "source": "f.txt", "declared_locator": "linha 1"},
+                    ensure_ascii=False,
+                )
+                + "\n",
+                encoding="utf-8",
+            )
+            out = tmp / "ver.jsonl"
+            code = subprocess.run(
+                [
+                    sys.executable,
+                    str(SCRIPTS / "verificar_citacoes.py"),
+                    "--input",
+                    str(cit),
+                    "--base",
+                    str(tmp),
+                    "--output",
+                    str(out),
+                ],
+                capture_output=True,
+                text=True,
+            )
+            self.assertEqual(code.returncode, 0)
+            record = json.loads(out.read_text(encoding="utf-8-sig").splitlines()[0])
+            self.assertEqual(record["status"], "verified_exact")
 
 
 if __name__ == "__main__":

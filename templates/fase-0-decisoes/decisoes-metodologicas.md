@@ -1,150 +1,153 @@
-# Decisões Metodológicas Iniciais
+# F0 — Constituição analítica
 
-**Sessão:** [nome-da-sessao]
-**Data:** [AAAA-MM-DD]
-**Fase:** 0 — Decisões Metodológicas Iniciais
-**Analista:** [nome]
+## 1. Identificação
 
----
+- Projeto:
+- Data:
+- Responsável:
+- Pergunta de pesquisa:
+- Objetivo analítico:
+- Corpus declarado:
+- Unidade de análise:
+- Saídas solicitadas:
 
-## 1. Abordagem de Análise Temática
+## 2. Configuração escolhida
 
-**Selecione a abordagem de AT adotada:**
+- Rota: autônoma | checkpoints | início humano | paralela cega
+- Profundidade: Essencial | Aprofundada
+- Checkpoints aplicáveis:
+- Contextos independentes disponíveis: sim | não | não verificável
+- Formatos adicionais disponíveis:
 
-- [ ] Reflexiva (Braun & Clarke)
-- [ ] Codebook (Boyatzis / Crabtree & Miller)
-- [ ] Confiabilidade de Codificação (Guest / MacQueen)
+### Recomendação do agente
 
-> ⛔ **Se Confiabilidade de Codificação foi marcada:** Esta skill NÃO se aplica a Confiabilidade de Codificação. A AT Reflexiva parte do princípio de que temas são construídos pelo analista, não descobertos nos dados. Confiabilidade de Codificação busca replicabilidade entre codificadores, o que é incompatível com a lógica reflexiva. Interrompa aqui e busca uma ferramenta adequada à sua abordagem.
+[Registrar a recomendação e por que ela é proporcional ao objetivo e ao corpus.]
 
-**Justificativa da escolha:**
-[Por que esta abordagem é adequada para sua pesquisa? Que pressupostos epistemológicos ela carrega e por que são coerentes com o seu projeto?]
+## 3. Decisões metodológicas
 
----
+### Orientação epistemológica
 
-## 2. Marco Epistemológico
+[Descrever posição e consequência concreta para o estatuto das falas e das interpretações.]
 
-**Selecione o marco que orienta a análise:**
+### Indutiva/dedutiva
 
-- [ ] Essencialista (realista) — significados existem nos dados e podem ser descobertos
-- [ ] Construtivista — significados são produzidos socialmente e a análise constrói interpretações
-- [ ] Crítico — significados são produzidos em contextos de poder e a análise busca revelar ideologias
+[Escolha, combinação e justificativa.]
 
-**Justificativa:**
-[Como este marco se relaciona com sua pergunta de pesquisa e com o tipo de dado que você está analisando?]
+### Semântica/latente
 
----
+[Escolha, combinação e justificativa independente do eixo anterior.]
 
-## 3. Orientação Analítica
+### Contexto e limites
 
-**Selecione a orientação:**
+[O que a análise pode e não pode afirmar.]
 
-- [ ] Descritiva (indutiva) — busca mapear o conteúdo explícito dos dados
-- [ ] Explanatória (analítica) — busca ir além do que está dito para explorar padrões de significado
+## 4. Inventário e plano de cobertura
 
-**Justificativa:**
-[Por que esta orientação é mais adequada que a alternativa? Como ela se articula com o marco epistemológico declarado na seção 2?]
+Arquivo computável: `manifesto-corpus.jsonl`
 
----
+| ID | Fonte | Formato | Extensão | SHA-256/linha no manifesto | Acessível? | Localização estável | Observação |
+|---|---|---|---|---|---|---|---|
+| F01 |  |  |  |  |  |  |  |
 
-## 4. Nível de Codificação
+### Derivação textual para verificação
 
-**Selecione o nível:**
+| ID | Original + SHA-256 | Derivado UTF-8 + SHA-256 | Método/versão | Correspondência preservada | Conferência |
+|---|---|---|---|---|---|
+| F01 |  |  |  | página/tempo/unidade | início/meio/fim + excertos publicados |
 
-- [ ] Semântico — códigos capturam o conteúdo explícito dos dados
-- [ ] Latente — códigos capturam o que está implícito, por trás das palavras
-- [ ] Ambos (recomendado para AT Reflexiva) — codificação semântica como base, com movimento analítico para o latente
+Plano para corpus acima da janela de contexto:
 
-**Justificativa:**
-[Por que este nível foi escolhido? Se "Ambos", explique como vai articular os dois níveis — semântico como fundação, latente como aspiração analítica.]
+[Lotes, memos por fonte e síntese transversal.]
 
----
+## 5. Material humano prévio
 
-## 5. Tipo de Dados e Estado de Processamento
+| Material | Autor/papel | Fase de origem | Como será usado | Independência necessária |
+|---|---|---|---|---|
+|  |  |  |  |  |
 
-**Selecione o tipo de dado:**
+## 6. Ética, consentimento e privacidade
 
-- [ ] Texto pronto para análise (transcrições já revisadas, documentos escritos)
-- [ ] Transcrição necessária (áudio/vídeo pendente de transcrição)
-- [ ] Documento institucional / textual (relatórios, políticas, diários de campo)
+- Autorização para uso do corpus:
+- Consentimento menciona IA:
+- Identificadores presentes:
+- Sensibilidade:
+- Ambiente de processamento:
+- Salvaguardas:
+- Incertezas e advertências:
 
-> **Se áudio/vídeo pendente de transcrição:** A transcrição é um ato analítico, não meramente técnico. Escolhas sobre o que transcrever (pausas, entonação, sobreposições) já são decisões que afetam a análise. Documente suas decisões de transcrição antes de prosseguir.
+## 7. Manifesto inicial de IA
 
-**Decisões de transcrição (se aplicável):**
-[Nível de detalhe da transcrição: verbatim? Jeffersoniana? Editada? Justifique.]
+| Campo | Registro |
+|---|---|
+| Ambiente/modelo/versão |  |
+| Data |  |
+| Parâmetros expostos |  |
+| Nome da skill | analise-tematica-reflexiva |
+| Rota e profundidade |  |
+| Funções previstas |  |
+| Limites de contexto/ferramenta |  |
+| Processamento local/remoto |  |
+| Retenção/política conhecida |  |
+| Instruções adicionais do usuário |  |
 
-**Descrição do dataset:**
-- Fonte dos dados: [quem produziu, quando, em que contexto]
-- Formato: [entrevistas semiestruturadas / grupos focais / diários / documentos / outro]
-- Tamanho aproximado: [N palavras / N páginas / N minutos de gravação]
-- Condição: [transcrito e revisado / transcrito sem revisão / pendente de transcrição]
+## 8. Matriz de delegação
 
----
+| Fase | Função delegada | Nível 0–3 | Ambiente/modelo | Verificação prevista | Papel humano |
+|---|---|---|---|---|---|
+| F0–F6 |  |  |  |  | não houve/descrição |
 
-## 6. Questão de Pesquisa
+## 9. Alinhamento epistemológico
 
-**Questão principal:**
-[A pergunta central que orienta toda a análise. Deve ser específica o suficiente para direcionar a codificação, mas aberta o suficiente para permitir descobertas.]
+- o que a IA pode fazer nesta análise:
+- o que ela não pode reivindicar:
+- risco de confundir padrão textual e experiência:
+- consequência para as afirmações:
 
-**Questões subsidiárias (se houver):**
-- [questão subsidiária 1]
-- [questão subsidiária 2]
+## 10. Mapa inicial de participação humana
 
-**Como a questão orienta a análise:**
-[Explique explicitamente como a questão de pesquisa direciona a seleção e interpretação dos dados. A análise é deductiva (orientada pela questão) ou indutiva (orientada pelos dados)? Se mista, descreva a proporção esperada.]
+| Fase | Participante/papel | Intervenção prevista | Efeito esperado | Pendente |
+|---|---|---|---|---|
+| F0–F6 |  |  |  |  |
 
----
+## 11. Registro de interação com IA
 
-## 7. Escala do Dataset e Estratégia de Leitura
+| ID | Fase/função | Ambiente/modelo | Objetivo e prompt sanitizado | Fontes por ID | Artefato | Verificação | Intervenção humana/efeito |
+|---|---|---|---|---|---|---|---|
+| IA-0001 | F0 |  |  |  |  |  | não houve/descrição |
 
-**Número de itens no dataset:**
-[N transcrições / documentos / arquivos]
+## 12. Memo reflexivo inicial
 
-**Estratégia de leitura:**
+- pressupostos ativados pela pergunta;
+- expectativas sobre o corpus;
+- riscos de acomodação à hipótese;
+- conceitos sensibilizadores;
+- posições e limites conhecidos.
 
-- [ ] Leitura completa de todos os itens
-- [ ] Amostragem intencional — justificativa: [por que nem todos os itens serão lidos e como garante representatividade]
+## 13. Exemplo curto
 
-> **Se o dataset contém mais de 100 itens:** É obrigatório apresentar uma justificativa detalhada para a estratégia de leitura escolhida, explicando como a profundidade analítica não será comprometida pela escala.
+> **Pergunta:** Como pessoas de diferentes faixas de renda constroem legitimidade para formar e expressar julgamentos políticos?  
+> **Rota:** autônoma aprofundada.  
+> **Eixos:** predominantemente indutiva, com atenção semântica e latente.  
+> **Cuidado:** renda contextualiza; não determina temas ou posições.
 
-**Justificativa detalhada da estratégia de leitura (obrigatória se >100 itens):**
-[Como você vai garantir imersão suficiente nos dados para gerar códigos e temas significativos? Qual é o plano de leitura — ordem, profundidade, quantas leituras por item?]
+Ver `referencias/exemplo-integrado.md`.
 
----
+## 14. Gate F0
 
-## 8. Notas Reflexivas Iniciais
+| Requisito | PASS/FAIL/N/A | Evidência |
+|---|---|---|
+| pergunta, corpus e unidade delimitados |  |  |
+| eixos e posição coerentes |  |  |
+| delegação e capacidades registradas |  |  |
+| ética, privacidade e limites explícitos |  |  |
+| cobertura e verificação planejadas |  |  |
 
-**Expectativas do analista:**
-[O que você espera encontrar nos dados? Que hipóteses ou pressupostos traz para esta análise? Registrá-los explicitamente aumenta a transparência e permite rastrear influências.]
+## 15. Critério de saída
 
-**Posições e vieses declarados:**
-[Sua posição social, profissional e epistemológica em relação ao fenômeno estudado. Que relações você tem com os participantes, o contexto ou as teorias relevantes? Que vieses são prováveis?]
-
-**Se agente de IA é utilizado como analista:**
-[Declarar o uso de IA como ferramenta analítica. Qual modelo? Em quais etapas? Com que nível de autonomia? Que supervisão humana será exercida? A IA não possui posição social — documente isso e explique como isso afeta o processo.]
-
----
-
-## Checkpoint da Fase 0
-
-Antes de avançar para a Fase 1, verificar:
-
-- [ ] Abordagem de AT declarada e justificada
-- [ ] Marco epistemológico declarado
-- [ ] Orientação analítica declarada
-- [ ] Nível de codificação declarado
-- [ ] Tipo de dados e estado de processamento declarados
-- [ ] Questão de pesquisa formulada
-- [ ] Escala do dataset e estratégia de leitura definidas
-- [ ] Notas reflexivas iniciais registradas
-
-**Status do checkpoint:** [PASSOU / NÃO PASSOU]
-
-**Não é possível avançar para a Fase 1 sem que todas as decisões acima estejam documentadas.**
-
-**Se NÃO PASSOU:** Retorne e complete os itens faltantes. Omitir decisões metodológicas compromete toda a análise subsequente.
-**Se PASSOU:** Avançar para Fase 1 — Familiarização com os Dados.
-
----
-
-**Saída desta fase:** `00-decisoes-metodologicas.docx`
+- [ ] Pergunta, corpus e unidade estão delimitados.
+- [ ] Os dois eixos metodológicos foram decididos separadamente.
+- [ ] Rota, profundidade e capacidades foram confirmadas.
+- [ ] Cobertura e limitações foram planejadas.
+- [ ] Ética e privacidade foram registradas sem inventar autorização.
+- [ ] Manifesto, delegação, interações e mapa humano foram iniciados.
+- [ ] A análise pode avançar ou a ressalva foi explicitada.

@@ -1,250 +1,279 @@
 ---
 name: analise-tematica-reflexiva
-description: Use esta skill sempre que o usuario precisar realizar Analise Tematica Reflexiva (ATR) sobre dados qualitativos. Acione quando mencionar analise tematica, temas, codificacao qualitativa, entrevistas, grupos focais, documentos, categorias analiticas, mapa tematico, codebook, Braun e Clarke, reflexive thematic analysis, RTA ou trustworthiness. Conduz uma ATR completa em 7 fases obrigatorias (0-6), com verificacao literal de extratos, reflexividade, auditoria de frequencia, visualizacoes e trilha de auditoria.
+description: Use when the user needs to perform, continue, audit, review, or compare a Reflexive Thematic Analysis of qualitative material, including interviews, focus groups, documents, human codes, candidate themes, autonomous AI analysis, or work based on Braun and Clarke.
 ---
 
-# Analise Tematica Reflexiva (ATR)
+# Análise Temática Reflexiva
 
-> Licenca do repositorio: Creative Commons Attribution 4.0 International (CC BY 4.0). Veja `LICENSE`.
+## Princípio central
 
-## Regra de Execucao
+Conduzir Análise Temática Reflexiva (ATR) como prática interpretativa, recursiva e situada. Construir uma leitura argumentada; não apresentar temas como entidades descobertas nem simular neutralidade ou experiência humana.
 
-Execute ATR como pesquisa qualitativa interpretativa, nao como resumo automatizado. Temas sao construidos pelo analista a partir de padroes de significado compartilhado; eles nao "emergem" mecanicamente dos dados.
+Executar autonomamente F0–F6 quando solicitado. A ausência de participação ou validação humana não impede a conclusão do fluxo, mas deve permanecer explícita e separada da cobertura, da integridade das evidências e da prontidão do relatório.
 
-O agente de IA deve usar sua propria capacidade de linguagem para ler, comparar, interpretar, contrastar e propor codigos/temas. Scripts e frequencias entram como auditoria e visualizacao depois da interpretacao inicial, nunca como substituto da leitura qualitativa.
+Aplicar **contestabilidade interpretativa incorporada**:
 
-## Contrato de Profundidade
+> Toda interpretação escolhida deve carregar uma alternativa forte recusada, a evidência da escolha e o custo experiencial da abstração.
 
-Quando o usuario pedir "analise completa", "AT completa", "ATR completa" ou equivalente, use sempre o modo `analise_completa`. Nao trate como teste rapido de pipeline.
+## Invariantes
 
-No modo `analise_completa`, cada fase substantiva deve gerar texto amplo, profundo e auditavel. Regra simples para o agente: cada fase deve ter pelo menos 2.000 palavras, salvo corpus muito pequeno ou instrucao explicita do usuario para resumir. Se a fase ficar abaixo disso, explique a razao metodologica e marque o checkpoint como `NAO PASSOU` ate complementar.
+1. Construir temas; nunca dizer que eles “emergiram sozinhos”.
+2. Trabalhar recursivamente entre familiarização, códigos, temas e escrita.
+3. Decidir separadamente indução/dedução e semântico/latente.
+4. Tornar categorias e subtemas opcionais.
+5. Não usar frequência como sinônimo de importância.
+6. Não exigir codebook rígido, consenso, Kappa, estabilidade ou resultados idênticos.
+7. Tratar contradições, casos raros e silêncios como possíveis recursos analíticos.
+8. Verificar literalmente todo excerto publicado contra a fonte acessível.
+9. Não chamar convergência entre agentes de triangulação humana.
+10. Não atribuir consciência, experiência vivida ou reflexividade humana à IA.
+11. Não inventar dados, contexto, autorização, parâmetros, citações ou validação.
+12. Preservar a proveniência de material humano e algorítmico.
+13. Manter afirmações proporcionais ao corpus efetivamente processado.
 
-Cada fase deve mostrar detalhadamente o que foi feito passo a passo:
-- quais arquivos/fontes foram lidos;
-- quais decisoes analiticas foram tomadas;
-- quais extratos sustentam a decisao;
-- quais alternativas foram consideradas e rejeitadas;
-- quais dados divergentes, ambiguos ou pouco encaixados foram discutidos;
-- o que o pesquisador humano deve revisar criticamente.
+## Configurar a execução
 
-Inclua em todas as fases uma secao chamada `Auditoria de profundidade da fase`, com contagem aproximada de palavras, fontes usadas, numero de extratos citados/verificados, cobertura por fonte/participante, tensoes encontradas e pontos para revisao humana.
+Se o pedido já definir rota, profundidade, pergunta e corpus, registrar as escolhas e começar. Solicitar somente o que for materialmente indispensável e não puder ser inferido do pedido ou dos arquivos.
 
-Use `modo teste_rapido` apenas se o usuario pedir explicitamente piloto, rascunho, smoke test, exemplo curto ou validacao de pipeline. Nesse caso, declare que a saida nao e ATR completa substantiva.
+### Rotas
 
-## Carregamento Obrigatorio
+1. **Autônoma** — executar F0–F6 sem checkpoints humanos obrigatórios.
+2. **Por checkpoints** — pausar após F0, F2, F4 e F5.
+3. **Início humano** — partir de memos, códigos ou temas fornecidos e registrar seu efeito.
+4. **Paralela cega** — concluir a leitura da IA até F5 antes de acessar a leitura humana.
 
-Para uma ATR completa, leia e siga estes arquivos antes de iniciar o trabalho. Nao trate como material opcional.
+### Profundidade
 
-**Referencias metodologicas obrigatorias:**
-- `referencias/hierarquia-analitica.md` - diferenca entre codigo, categoria, subtema e tema.
-- `referencias/qualidade-dos-codigos.md` - criterios para bons codigos e revisao de codigos vagos.
-- `referencias/construcao-de-temas.md` - tema genuino vs. resumo de dominio.
-- `referencias/confiabilidade.md` - credibilidade, dependabilidade, confirmabilidade e transferibilidade.
-- `referencias/visualizacoes.md` - regras de data viz, Graphviz/DOT, frequencia e exportacao.
+1. **Essencial** — todas as fases, extensão proporcional e contestação compacta.
+2. **Aprofundada** — passes analíticos separados, documentação extensa e alvo usual de 2.000 palavras por fase substantiva quando o corpus justificar.
 
-**Templates obrigatorios, por fase:**
-- `templates/fase-0-decisoes/decisoes-metodologicas.md`
-- `templates/fase-1-familiarizacao/notas-de-familiarizacao.md`
-- `templates/fase-2-codigos/codebook-inicial.md`
-- `templates/fase-3-temas/temas-candidatos.md`
-- `templates/fase-4-revisao/revisao-temas.md`
-- `templates/fase-5-definicao/definicao-temas-finais.md`
-- `templates/fase-6-relatorio/relatorio-final.md`
+Tratar 2.000 palavras como **meta editorial não bloqueante**, nunca como prova de qualidade ou condição de aprovação. Não inflar fases administrativas, tabelas, listas ou análises de corpus pequeno.
 
-**Scripts obrigatorios quando gerar artefatos:**
-- `scripts/gerar_diagramas.py` - biblioteca unica de diagramas, verificacao de citacoes e frequencia.
-- `scripts/gerar_saida_final.py` - wrapper simples para gerar outputs a partir de JSON da analise.
+### Entradas mínimas
 
-**Testes e criterios adversariais:**
-- `testes/TESTES.md` - cenarios de falha metodologica.
-- `testes/test_scripts.py` - testes executaveis dos scripts.
+Registrar:
 
-## Regra de Ouro dos Extratos
+- pergunta ou objetivo;
+- corpus, unidade de análise e limites;
+- contexto necessário;
+- posição epistemológica, se definida;
+- material humano prévio;
+- formato e local de saída.
 
-Todo extrato citado deve cumprir os quatro criterios:
+Antes de analisar, declarar fontes acessíveis, ilegíveis ou ausentes; capacidade de produzir formatos adicionais; possibilidade de separar contextos; e riscos de privacidade, consentimento ou processamento por IA.
 
-1. Ser transcricao literal do dado original, sem parafrase.
-2. Trazer localizacao precisa: fonte, pagina/linha/ID quando disponivel.
-3. Aparecer entre aspas como citacao direta.
-4. Ser verificavel contra o corpus.
+Se houver identificadores pessoais e nenhuma direção para continuar, perguntar se já são pseudônimos ou se a saída deve ser anonimizada. Se o usuário mandar prosseguir, inclusive sem confirmação específica sobre IA, anonimizar por padrão a cópia de trabalho e a saída, advertir sobre a incerteza, registrar o esquema de IDs e continuar. Pedir nova decisão somente quando preservar identidades for indispensável à pergunta. Nunca alterar silenciosamente a fonte nem converter continuação em aprovação ética.
 
-Use `verificar_citacoes()` em `scripts/gerar_diagramas.py` quando houver corpus textual disponivel. Aceite como validos apenas extratos com `status = "verificado"` por correspondencia exata. Resultado `parcial` ou `nao_encontrado` nao passa checkpoint.
+## Carregar recursos progressivamente
 
-Se o agente nao tiver acesso ao dado original, escreva exatamente: `[Extrato reconstruido da memoria - requer verificacao contra o original]`. Qualquer fase com extrato reconstruido nao pode ser marcada como concluida.
+Resolver todos os caminhos abaixo relativamente à pasta que contém este `SKILL.md`, nunca presumir o diretório de trabalho do agente.
 
-## Papel do Agente e do Pesquisador
+- Ler `referencias/fundamentos-atr.md` antes de F0–F3.
+- Ler `referencias/qualidade-analitica.md` para aplicar gates e avaliar códigos, temas e relatório.
+- Ler `referencias/contestabilidade-interpretativa.md` antes de F4–F5.
+- Ler `referencias/colaboracao-e-auditoria.md` para rotas, registros de IA, estatutos e participação humana.
+- Ler `referencias/ia-em-at.md` ao planejar ou auditar qualquer intervenção de IA.
+- Ler `referencias/fundamentacao-e-proveniencia.md` ao justificar decisões acadêmicas.
+- Ler `referencias/exemplo-integrado.md` somente quando um exemplo preenchido ajudar.
 
-**Agente propoe:** codigos, nomes, interpretacoes, alternativas, visualizacoes, revisoes.
+Não carregar todas as referências por rotina.
 
-**Pesquisador decide:** marco epistemologico, aceitacao de codigos/temas, nomes finais, encerramento da analise, uso de interpretacoes.
+## Contrato comum
 
-**Agente bloqueia:** pular fase, codificar sem familiarizacao, aceitar codigos vagos, aceitar resumos de dominio como temas, descartar dados divergentes, usar frequencia como importancia automatica, citar extratos nao verificados.
+### Cobertura
 
-Declare no relatorio final que IA generativa foi usada e descreva seus riscos: tendencia a coerencia excessiva, generalizacao, suavizacao de contradicoes e preferencia por narrativas elegantes.
+Inventariar todo o corpus declarado e registrar o que foi efetivamente lido. Para corpus maior que o contexto disponível, trabalhar em lotes, produzir memos por fonte e realizar síntese transversal. Nunca inferir cobertura integral de amostra silenciosa.
 
-## Workflow Obrigatorio
+Quando houver acesso local aos arquivos e Python, gerar a identidade computável do corpus após resolver a pasta desta skill:
 
-Use as fases abaixo em ordem. O processo e recursivo: se uma fase posterior revelar problema anterior, volte, documente e refaca a etapa afetada.
+```text
+python "<PASTA_DA_SKILL>/scripts/verificar_citacoes.py" --inventario CORPUS --output manifesto-corpus.jsonl
+```
 
-### Fase 0 - Decisoes Metodologicas
+Manter `CORPUS` restrito às fontes de entrada e gravar a saída fora dele. O `manifesto-corpus.jsonl` registra caminho relativo, bytes, linhas e SHA-256. Ele prova a identidade e a integridade dos arquivos inventariados, não que tenham sido lidos. Reconciliar o manifesto com intervalos percorridos, lotes e memos por fonte em F1; tratar estes últimos como trilha processual auditável, não como prova externa de cognição.
 
-Antes de ler/codificar os dados, preencha `templates/fase-0-decisoes/decisoes-metodologicas.md`.
+### Citações
 
-Documente:
-- tipo de AT: Reflexiva, Codebook ou Confiabilidade de Codificacao. Se for Confiabilidade, esta skill nao se aplica como metodo principal.
-- marco epistemologico: essencialista, construtivista, critico ou outro.
-- orientacao analitica: descritiva, explanatoria ou interpretativa.
-- nivel de codificacao: semantico, latente ou ambos.
-- tipo de dado: texto pronto, transcricao necessaria, documento, diario, grupo focal etc.
-- questao de pesquisa.
-- escala do corpus e estrategia de leitura.
-- decisoes de transcricao, se houver audio/video.
+Conferir cada excerto por busca exata ou leitura direta. Registrar ID, fonte anonimizada e localização estável. Texto alterado é paráfrase e não recebe aspas.
 
-Checkpoint: nao avance para Fase 1 sem todas as decisoes registradas.
+Para `.docx`, `.pdf`, áudio, legenda ou texto em outra codificação:
 
-Profundidade minima: em analise completa, registre tambem a auditoria de profundidade da fase. Se as decisoes metodologicas forem curtas por natureza, justifique; isso nao autoriza encurtar as fases analiticas posteriores.
+1. preservar o original sem alteração;
+2. criar derivado textual UTF-8 sem limpar, resumir ou parafrasear o conteúdo;
+3. registrar nome e SHA-256 do original e do derivado, método/versão de extração e correspondência de páginas, tempos ou unidades;
+4. conferir amostras do início, meio e fim e cada excerto destinado à publicação contra o original;
+5. verificar citações contra o derivado e manter também o localizador do original quando disponível.
 
-### Fase 1 - Familiarizacao
+Quando os derivados ficarem fora de `CORPUS`, inventariá-los separadamente como `manifesto-derivados.jsonl` com o mesmo comando `--inventario`.
 
-Leia todo o corpus antes de codificar. Familiarizacao nao e a mesma coisa que ter conduzido entrevistas.
+Se a extração ou sua correspondência não puder ser auditada, continuar a análise com evidência limitada, mas não publicar o excerto como literal verificado.
 
-Preencha `templates/fase-1-familiarizacao/notas-de-familiarizacao.md` com observacoes, surpresas, perguntas, passagens relevantes e reflexividade. Nao gere codigos nesta fase.
+Quando houver fontes ou derivados textuais UTF-8 e Python, resolver primeiro a pasta desta skill e usar:
 
-Checkpoint: corpus lido, notas produzidas, passagens destacadas, reflexividade registrada.
+```text
+python "<PASTA_DA_SKILL>/scripts/verificar_citacoes.py" --input citacoes.jsonl --base CORPUS --output verificacao-citacoes.jsonl
+```
 
-Profundidade minima: em analise completa, `01-notas-familiarizacao.md` deve ter pelo menos 2.000 palavras. Para corpus com varias entrevistas/documentos, escreva um memo substantivo por fonte, normalmente 300-500 palavras por entrevista/documento, alem de uma sintese transversal. Inclua `Auditoria de profundidade da fase`.
+Usar uma citação por linha JSONL, por exemplo: `{"citation_id":"Q001","text":"fala literal","source":"P01.txt","declared_locator":"linha 12","original_source_id":"F01","original_locator":"PDF, p. 7"}`. Resolver `source` relativamente a `--base`; o script calcula localizadores por linha e o hash da fonte. Os dois campos do original são opcionais para o script e obrigatórios no registro quando a fonte tiver sido derivada.
 
-### Fase 2 - Codificacao Inicial
+Publicar como literal somente `verified_exact`. Antes de aceitar `not_found`, percorrer três passos: (1) busca exata na fonte declarada; (2) `relocalizado`: busca normalizada (caixa, espaços, quebras de linha, prefixos de locutor, truncamento) em TODAS as fontes do corpus, pois a fonte declarada pode estar errada e o trecho pode estar em outro arquivo; (3) `substituir`: busca do melhor trecho similar (similaridade >= 0.80), com `suggested_text` exato do corpus. `relocalizado` exige reescrever a citação com `candidate_exact` e repercorrer a verificação; `substituir` exige substituir a citação por `suggested_text` e repercorrer; registrar a correção na trilha de auditoria. Tratar `exact_multiple_needs_locator`, `exact_locator_mismatch`, `not_found` (após os três passos), `source_missing`, `source_unreadable` e `invalid_record` como não verificados até correção. Se o script não puder ser executado, aplicar a mesma lógica manualmente e registrar evidência da busca.
 
-Leia `referencias/qualidade-dos-codigos.md` e preencha `templates/fase-2-codigos/codebook-inicial.md`.
+### Interações com IA
 
-Codifique o corpus inteiro de forma sistematica. Um bom codigo e breve, mas autossuficiente; informa uma comunalidade; tem limites claros; nao e vago; nao e intercambiavel com outros codigos.
+Em cada fase, registrar somente o necessário:
 
-Codificacao In Vivo e permitida e muitas vezes desejavel quando a linguagem do participante carrega significado cultural, afetivo ou politico. Nao force In Vivo em todos os casos.
+| ID | Fase/função | Ambiente/modelo | Objetivo e prompt sanitizado | Fontes por ID | Artefato | Verificação | Intervenção humana/efeito |
+|---|---|---|---|---|---|---|---|
 
-Depois da primeira codificacao interpretativa, faca auditoria de frequencia:
-- Use a propria leitura LLM para codificar antes de calcular frequencias.
-- Use `calcular_frequencia_codigos()` ou `gerar_tabela_frequencia_markdown()` em `scripts/gerar_diagramas.py`.
-- Use frequencia para checar cobertura, lacunas, codigos amplos demais, codigos raros que merecem memo e distribuicao por fonte.
-- Nunca use frequencia como criterio automatico de importancia, descarte ou promocao a tema.
+Não registrar raciocínio interno, credenciais, identificadores desnecessários ou conversa sensível integral. Quando modelo, versão ou parâmetro não estiver exposto, escrever “não informado pelo ambiente”.
 
-Checkpoint: corpus inteiro codificado, codebook com definicoes, extratos literais verificados, codigos ambiguos documentados, frequencia auditada e dados divergentes codificados.
+### Estatuto da rival
 
-Profundidade minima: em analise completa, `02-codebook-inicial.md` deve ter pelo menos 2.000 palavras. Cada codigo principal precisa de definicao, criterios de inclusao, criterios de exclusao, 2-3 extratos literais, tensoes com codigos vizinhos e notas interpretativas. Inclua matriz de cobertura por fonte/participante e `Auditoria de profundidade da fase`.
+Usar exatamente:
 
-### Fase 3 - Construcao de Temas Candidatos
+- **independente** — contexto ou sessão separada; recebe corpus, pergunta e F0, mas não o mapa principal nem conclusões;
+- **informada** — vê o mapa principal ou trabalha no mesmo contexto;
+- **ausente** — nenhuma contestação foi executada.
 
-Leia `referencias/hierarquia-analitica.md` e `referencias/construcao-de-temas.md`. Preencha `templates/fase-3-temas/temas-candidatos.md`.
+Se a separação não puder ser demonstrada, registrar `informada`. A falta de multiagência não bloqueia F0–F6, mas proíbe alegar rival independente.
 
-Agrupe codigos em categorias e temas por significado compartilhado, nao por topico. Estrutura recomendada: Tema -> Subtema -> Categoria -> Codigo.
+### Gates
 
-Crie "Miscelanea" para codigos ainda sem encaixe. Nao descarte codigo por baixa frequencia ou falta de elegancia narrativa.
+Ao terminar cada fase:
 
-Checkpoint: todos os codigos revisados, categorias intermediarias criadas, temas candidatos com conceito organizador, mapa tematico inicial produzido.
+1. aplicar o checklist do template;
+2. corrigir uma vez os problemas corrigíveis;
+3. registrar cada requisito como `PASS`, `FAIL` ou `N/A`, com evidência;
+4. continuar o fluxo autônomo mesmo com `FAIL`, produzindo diagnóstico ou entrega parcial;
+5. impedir que qualquer `FAIL` substantivo coexista com “análise completa” ou “pronta para manuscrito”.
 
-Profundidade minima: em analise completa, `03-temas-candidatos.md` deve ter pelo menos 2.000 palavras. Para cada tema candidato, explique conceito organizador, por que os codigos foram agrupados, quais agrupamentos alternativos foram rejeitados, quais extratos sustentam o tema, quais extratos tensionam o tema e como o tema responde a questao de pesquisa. Inclua `Auditoria de profundidade da fase`.
+Por padrão, os gates são autoavaliações do mesmo sistema que produziu a fase. Registrar quem os avaliou e se houve independência; separar requisitos computados dos julgamentos interpretativos. `PASS` interno sem avaliação independente não equivale a validação externa, embora permita concluir a rota autônoma.
 
-### Fase 4 - Revisao e Refinamento
+Não repetir uma fase indefinidamente. Uma limitação reconhecida não se converte automaticamente em aprovação.
 
-Preencha `templates/fase-4-revisao/revisao-temas.md`.
+## Funções analíticas
 
-Nivel 1: releia todos os extratos de cada tema e avalie coerencia interna.
+### Essencial
 
-Nivel 2: releia o dataset contra o mapa tematico e avalie se o mapa representa adequadamente os significados do corpus.
+1. **Analista principal** — construir a leitura.
+2. **Contestador informado** — produzir a rival forte e localizar resíduos.
+3. **Integrador-auditor** — revisar temas, evidências e estatutos.
 
-Para cada tema, aplique Devil's Advocate:
-- Qual extrato menos se encaixa?
-- O que precisaria ser verdadeiro para este tema estar errado?
-- Se remover o tema, a analise ainda faz sentido? Se sim, talvez seja resumo de dominio.
-- O tema integra tensoes e variacoes ou as esconde?
+### Aprofundada
 
-Dados divergentes devem ser interpretados dentro dos temas que tensionam ou usados para reformular o mapa. Nao crie um tema "outliers" sem interpretacao substantiva.
+1. **Analista principal** — construir o melhor mapa inicial.
+2. **Analista rival** — operar como independente somente se o isolamento estiver demonstrado; caso contrário, operar como informado.
+3. **Advogado do diabo** — atacar coerência, fronteiras e inferências.
+4. **Guardião experiencial** — localizar ambiguidades, contradições e perdas situadas.
+5. **Auditor de evidências** — conferir cobertura, literalidade e genealogia sem decidir significados.
+6. **Integrador** — manter, revisar, dividir, fundir ou abandonar com razões explícitas.
 
-Regra de orcamento tematico (obrigatoria): a analise deve convergir para 4-8 temas finais. Nunca abaixo de 4. Acima de 8, apenas com boa justificativa explicita. Se houver 10 ou mais temas, tentar agregar da maneira mais substantiva possivel para chegar a 8 ou menos - agrupando por significado compartilhado, e nao por contagem ou conveniencia.
-Checkpoint: homogeneidade interna, heterogeneidade externa, revisao contra dataset, anti-extratos e mudancas documentadas.
+Realizar uma rodada adversarial completa e, quando necessário, uma revisão dirigida somente dos temas afetados.
 
-Profundidade minima: em analise completa, `04-revisao-temas.md` deve ter pelo menos 2.000 palavras. Para cada tema, documente revisao interna, revisao contra o dataset, anti-extratos, casos divergentes, condicao de falsificacao, limiar de colapso e decisao de manter, dividir, fundir ou reformular. Inclua `Auditoria de profundidade da fase`.
+## F0 — Constituição analítica
 
-### Fase 5 - Definicao e Nomeacao
+Preencher `templates/fase-0-decisoes/decisoes-metodologicas.md`.
 
-Preencha `templates/fase-5-definicao/definicao-temas-finais.md`.
+Definir pergunta, escopo, posição epistemológica, eixos, unidade, rota, profundidade, cobertura, ética e privacidade. Registrar uma matriz de delegação F0–F6, ambiente/modelo, parâmetros expostos, alinhamento entre capacidades da IA e posição metodológica, mapa humano e plano de verificação.
 
-Para cada tema, escreva 2-3 frases com a essencia, o conceito organizador, os limites e a historia analitica. Nomear tema e ato analitico: evite "Tipos de...", "Beneficios de...", "Barreiras para...", palavras unicas e reflexos do roteiro.
+**Saídas:** `00-constituicao-analitica.md` e, quando houver arquivos locais, `manifesto-corpus.jsonl`.
 
-Documente relacoes entre temas: sequencial, complementar, tensao ou hierarquica.
+**Gate:** `PASS` somente quando decisões, lacunas, riscos e limites de alegação estiverem explícitos. Consentimento desconhecido bloqueia alegações de aprovação ética, não a descrição analítica autorizada pelo usuário.
 
-Checkpoint: temas definidos, nomes interpretativos, extratos verificados, relacoes documentadas, decisoes humanas registradas.
+## F1 — Familiarização
 
-Profundidade minima: em analise completa, `05-definicao-temas.md` deve ter pelo menos 2.000 palavras. A definicao curta de 2-3 frases e obrigatoria, mas nao substitui a analise longa. Cada tema final deve ter historia interpretativa, limites, relacao com outros temas, 4-6 extratos literais interpretados, variacoes entre fontes e dado divergente discutido. Inclua `Auditoria de profundidade da fase`.
+Preencher `templates/fase-1-familiarizacao/notas-de-familiarizacao.md`.
 
-### Fase 6 - Relatorio Analitico
+Ler todas as fontes acessíveis. Produzir memos por fonte ou lote, síntese transversal e memo reflexivo com tensões, mudanças de posição, expressões situadas e perguntas.
 
-Preencha `templates/fase-6-relatorio/relatorio-final.md`.
+**Saída:** `01-familiarizacao.md`.
 
-O relatorio deve contar uma historia analitica coerente em relacao a questao de pesquisa. Inclua extratos suficientes, interpretacao, variacao, contradicoes, mapa final, trilha de auditoria, confiabilidade e declaracao de IA.
+**Gate:** `PASS` somente quando inventário e cobertura coincidirem. Cobertura parcial exige `FAIL` para integralidade e delimitação explícita do subconjunto.
 
-Leia `referencias/confiabilidade.md` antes de escrever a secao de qualidade.
+## F2 — Codificação reflexiva
 
-Checkpoint: narrativa integradora, metodologia, confiabilidade, limites, uso de IA, codebook e anexos finalizados.
+Preencher `templates/fase-2-codigos/codificacao-reflexiva.md`.
 
-Profundidade minima: em analise completa, `06-relatorio-final.md` deve ter pelo menos 2.000 palavras. Para corpus medio ou grande, o relatorio deve ser maior; cada tema final deve ter desenvolvimento analitico robusto, preferencialmente 1.200-2.000 palavras por tema quando o corpus permitir, com 4-6 extratos literais interpretados, comparacao entre participantes/fontes, dado divergente e implicacao analitica. Inclua `Auditoria de profundidade final`.
+Codificar todo material relevante, permitindo múltiplos códigos por excerto e revisão durante o processo. Para cada código material, registrar significado, excerto, localização, nota interpretativa, origem e mudanças. Distinguir códigos humanos, gerados, revisados e recusados.
 
-## Visualizacoes e Scripts
+**Saída:** `02-codificacao-reflexiva.md`.
 
-Use `referencias/visualizacoes.md` antes de gerar graficos.
+**Gate:** `PASS` somente com códigos específicos, distribuídos pelo corpus acessível e ligados a evidências localizadas. Excertos não verificados não podem sustentar temas finais como citações.
 
-Padrao simples para agentes:
+## F3 — Temas candidatos
 
-1. Produza Markdown renderizavel:
-   - Graphviz/DOT para mapas hierarquicos.
-   - Infographic/infocard para resumo de fases.
-   - Tabela Markdown para auditoria de frequencia.
-2. Produza SVG/PNG para DOCX:
-   - `gerar_mapa_tematico()`
-   - `gerar_diagrama_evolucao()`
-   - `gerar_diagrama_relacoes()`
-   - `gerar_diagrama_trajetoria()`
-   - `gerar_mapa_final()`
-3. Gere documentos com `gerar_saida_final.py` a partir de JSON externo. Nao coloque dados reais dentro dos scripts.
+Preencher `templates/fase-3-temas/temas-candidatos.md`.
 
-Data viz deve ser explicativa, nao decorativa: titulos claros, paleta segura para daltonismo, labels diretos, sem 3D, sem grafico de pizza, sem gradiente ornamental, sem barras que sugiram importancia analitica por frequencia.
+Construir padrões de significado compartilhado. Para cada tema candidato, explicitar conceito organizador, afirmação, evidências, fronteiras, variação, tensões e condições prévias de enfraquecimento ou derrota. Não finalizar a primeira solução.
 
-## Terminologia Correta
+**Saída:** `03-temas-candidatos.md`.
 
-Use:
-- "temas foram construidos/gerados"
-- "a analise identificou"
-- "o mapa tematico foi refinado"
-- "dados divergentes tensionam o tema"
+**Gate:** `PASS` somente quando os temas responderem à pergunta e não forem tópicos, perguntas de entrevista ou resumos de domínio.
 
-Nao use:
-- "temas emergiram"
-- "os dados revelaram"
-- "descobri temas"
-- "outliers foram descartados"
+## F4 — Contestação e revisão
 
-## Bloqueios Obrigatorios
+Preencher `templates/fase-4-revisao/revisao-temas.md`.
 
-Bloqueie a progressao quando ocorrer:
-- tentativa de saltar familiarizacao.
-- ausencia de decisoes da Fase 0.
-- codigo vago ou sem limites.
-- tema candidato que e resumo de dominio.
-- extrato citado sem verificacao literal.
-- descarte de dado divergente por inconveniencia.
-- remocao de codigo por baixa frequencia.
-- relatorio sem contradicoes, limitacoes ou declaracao de IA.
-- fase de analise completa com texto curto, sem auditoria de profundidade ou com menos de 2.000 palavras sem justificativa.
-- arquivo criado, mas sem trabalho interpretativo suficiente para auditoria humana.
-- teste rapido apresentado como ATR completa.
+Produzir a melhor rival disponível, registrar seu estatuto e comparar argumentos sem votação ou concordância. Testar coerência, distinção, cobertura, tensão, resíduo experiencial e as condições registradas em F3. Registrar manter, revisar, dividir, fundir ou abandonar. Se nenhum tema for abandonado ou fundido substantivamente, explicar por tema por que a rival e a evidência não satisfizeram sua condição prévia de enfraquecimento ou derrota.
 
-Use linguagem direta: "Nao e possivel avancar"; "O checkpoint nao passou"; "Esta fase precisa ser refeita".
+**Saída:** `04-contestacao-e-revisao.md`.
+Regra de orçamento temático: a análise deve convergir para 4-8 temas finais. Nunca abaixo de 4. Acima de 8, apenas com boa justificativa explícita. Com 10 ou mais temas, tentar agregar da maneira mais substantiva possível para chegar a 8 ou menos, agrupando por significado compartilhado, e não por contagem ou conveniência.
 
-## Validacao
 
-Antes de devolver trabalho final:
+**Gate:** `PASS` somente quando houver rival material, evidência auditada e mudança ou recusa justificada. Contestação `ausente` é `FAIL`; contestação `informada` pode passar, mas não virar independente.
 
-1. Rode `python -m py_compile scripts/gerar_diagramas.py scripts/gerar_saida_final.py`.
-2. Rode `python -m unittest testes.test_scripts`.
-3. Se estiver usando esta skill dentro de um ecossistema que ofereca um validador proprio de skills, rode tambem a validacao nativa do seu ambiente.
-4. Confirme que nao ha outputs gerados, `__pycache__` ou dados reais hardcoded dentro de `scripts/`.
+## F5 — Temas finais e passaportes
+
+Preencher `templates/fase-5-definicao/definicao-temas-finais.md`.
+
+Para cada tema, registrar nome, conceito organizador, afirmação, história, genealogia, excertos-âncora verificados, rival, evidência decisiva, resíduo, decisão, incerteza, estatuto da rival e participação humana.
+
+**Saídas:** `05-temas-finais-e-passaportes.md` e, quando houver excertos candidatos, `citacoes.jsonl` e `verificacao-citacoes.jsonl`.
+
+**Gate:** `PASS` somente quando cada tema for coerente, distinto, contestável e sustentado por evidência verificável. Não usar percentuais de confiança.
+
+## F6 — Relato
+
+Preencher `templates/fase-6-relatorio/relatorio-final.md`.
+
+Produzir:
+
+1. **corpo principal** — método, narrativa integradora, temas, excertos e conclusão;
+2. **apêndice auditável** — passaportes, manifesto de IA, delegação, interações, mapa humano, cobertura, verificação, gates e decisões adversariais.
+
+Markdown é obrigatório. Produzir DOCX ou outro formato quando solicitado e suportado; a indisponibilidade de formato adicional não muda o estatuto metodológico.
+
+**Saída universal:** `06-relatorio-final.md`. Anexar `manifesto-corpus.jsonl` quando houver corpus local, `manifesto-derivados.jsonl` quando houver conversão e `citacoes.jsonl` mais `verificacao-citacoes.jsonl` quando o relatório usar ou avaliar excertos; registrar `N/A` no apêndice quando um artefato não se aplicar.
+
+**Gate:** `PASS` somente quando o texto estiver alinhado a F0, todas as citações publicadas estiverem verificadas e nenhum estatuto exceder o trabalho realizado.
+
+## Estatuto final
+
+Declarar separadamente:
+
+- **Fluxo:** F0–F6 executado ou interrompido.
+- **Cobertura:** integral, parcial ou indeterminada.
+- **Evidências:** verificáveis, limitadas ou inválidas.
+- **Contestação:** independente, informada ou ausente.
+- **Participação humana:** mapa por fase.
+- **Validação humana:** realizada, parcial ou ausente.
+- **Prontidão:** manuscrito, exploração ou auditoria.
+
+Usar “ATR autônoma completa” somente se todo o corpus declarado e acessível tiver sido tratado e todos os gates substantivos tiverem `PASS`. A validação humana pode permanecer ausente:
+
+> ATR autônoma completa no escopo declarado e auditável; redação pronta para incorporação em manuscrito; sem validação humana.
+
+Não prometer verdade, publicação, equivalência humana ou aprovação ética.
+
+## Checklist final
+
+- [ ] Inventário e cobertura foram reconciliados.
+- [ ] Toda citação publicada está `verified_exact`.
+- [ ] Códigos e temas mantêm genealogia até a fonte.
+- [ ] Temas possuem conceito organizador e respondem à pergunta.
+- [ ] Rival e resíduo material foram tratados.
+- [ ] Estatuto da rival está correto.
+- [ ] Cada tema possui passaporte.
+- [ ] Delegação, interações de IA e participação humana foram registradas.
+- [ ] Gates e limitações permanecem visíveis.
+- [ ] O estatuto final corresponde ao trabalho realizado.
