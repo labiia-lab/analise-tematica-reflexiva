@@ -7,6 +7,8 @@
 
 ---
 
+**REGRA OBRIGATÓRIA — Orçamento temático:** a análise deve convergir para 4–8 temas finais. Nunca abaixo de 4. Acima de 8, apenas com boa justificativa explícita. Se houver 10 ou mais temas candidatos, agregar da maneira mais substantiva possível para chegar a 8 ou menos — agrupando por significado compartilhado, e não por contagem ou conveniência.
+
 ## 1. Nível 1: Revisão Interna dos Temas
 
 *Para cada tema candidato, leia TODOS os extratos agrupados e verifique se formam padrão coerente.*
@@ -20,6 +22,7 @@
 **Coerência interna:**
 - [ ] Os extratos formam padrão coerente entre si
 - [ ] O conceito organizador central unifica todos os extratos
+- [ ] Orçamento temático verificado: 4–8 temas finais (ou justificativa explícita registrada para 9 ou mais)
 - [ ] Não há extratos que contradizem o padrão central do tema
 
 **Diagnóstico:**
