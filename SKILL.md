@@ -68,7 +68,7 @@ Todo extrato citado deve cumprir os quatro criterios:
 3. Aparecer entre aspas como citacao direta.
 4. Ser verificavel contra o corpus.
 
-Use `verificar_citacoes()` em `scripts/gerar_diagramas.py` quando houver corpus textual disponivel. Aceite como validos apenas extratos com `status = "verificado"` por correspondencia exata. Resultado `parcial` ou `nao_encontrado` nao passa checkpoint.
+Use `verificar_citacoes()` em `scripts/gerar_diagramas.py` quando houver corpus textual disponivel. Aceite como validos por correspondencia exata os status `verificado` e `relocalizado`; `substituir` tambem vale, desde que a citacao seja substituida pelo `trecho_correspondente` exato do corpus e a verificacao seja repercorrida, com a substituicao registrada na trilha de auditoria. Antes de declarar `nao_encontrado`, execute os tres passos: (1) busca exata na fonte declarada; (2) busca normalizada (caixa, espacos, quebras e prefixos de locutor) em TODAS as fontes - a fonte declarada pode estar errada e o trecho pode estar em outro arquivo; (3) busca do melhor trecho similar, substituindo a citacao pelo trecho exato sugerido. Somente depois desses tres passos o extrato e `nao_encontrado`. Resultado `parcial` ou `nao_encontrado` (apos os tres passos) nao passa checkpoint.
 
 Se o agente nao tiver acesso ao dado original, escreva exatamente: `[Extrato reconstruido da memoria - requer verificacao contra o original]`. Qualquer fase com extrato reconstruido nao pode ser marcada como concluida.
 
