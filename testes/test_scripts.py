@@ -35,6 +35,40 @@ class CitationVerificationTests(unittest.TestCase):
         self.assertEqual(item["linha_fim"], 2)
         self.assertEqual(item["trecho_correspondente"], "Este extrato precisa ser literal.")
 
+    def test_surface_differences_are_relocalized(self):
+        from gerar_diagramas import verificar_citacoes
+
+        fontes = [
+            {
+                "fonte": "entrevista-01.txt",
+                "texto": "Na minha opini\u00e3o, o pior de todos. \u00c9 uma falta de respeito.",
+            }
+        ]
+        resultado = verificar_citacoes(
+            ["o PIOR  de   todos. \u00c9 uma falta"],
+            fontes=fontes,
+        )
+        item = resultado["o PIOR  de   todos. \u00c9 uma falta"]
+        self.assertEqual(item["status"], "relocalizado")
+        self.assertEqual(item["trecho_correspondente"], "o pior de todos. \u00c9 uma falta")
+        self.assertEqual(item["metodo"], "normalizado")
+
+    def test_truncated_extract_is_relocalized_in_another_source(self):
+        from gerar_diagramas import verificar_citacoes
+
+        fontes = [
+            {"fonte": "entrevista-02.txt", "texto": "Outra conversa."},
+            {"fonte": "entrevista-01.txt", "texto": "Ent\u00e3o, o sistema eleitoral brasileiro \u00e9 o melhor que tem do mundo."},
+        ]
+        resultado = verificar_citacoes(
+            ["o nosso sistema eleitoral brasileiro \u00e9 o melhor que tem do mundo"],
+            fontes=fontes,
+        )
+        item = resultado["o nosso sistema eleitoral brasileiro \u00e9 o melhor que tem do mundo"]
+        self.assertEqual(item["status"], "substituir")
+        self.assertEqual(item["fonte"], "entrevista-01.txt")
+        self.assertEqual(item["trecho_correspondente"], "Ent\u00e3o, o sistema eleitoral brasileiro \u00e9 o melhor que tem do mundo.")
+
     def test_paraphrased_extract_is_not_verified_as_literal(self):
         from gerar_diagramas import verificar_citacoes
 
