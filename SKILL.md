@@ -160,6 +160,7 @@ Para cada tema, aplique Devil's Advocate:
 
 Dados divergentes devem ser interpretados dentro dos temas que tensionam ou usados para reformular o mapa. Nao crie um tema "outliers" sem interpretacao substantiva.
 
+Regra de orcamento tematico (obrigatoria): a analise deve convergir para 4-8 temas finais. Nunca abaixo de 4. Acima de 8, apenas com boa justificativa explicita. Se houver 10 ou mais temas, tentar agregar da maneira mais substantiva possivel para chegar a 8 ou menos - agrupando por significado compartilhado, e nao por contagem ou conveniencia.
 Checkpoint: homogeneidade interna, heterogeneidade externa, revisao contra dataset, anti-extratos e mudancas documentadas.
 
 Profundidade minima: em analise completa, `04-revisao-temas.md` deve ter pelo menos 2.000 palavras. Para cada tema, documente revisao interna, revisao contra o dataset, anti-extratos, casos divergentes, condicao de falsificacao, limiar de colapso e decisao de manter, dividir, fundir ou reformular. Inclua `Auditoria de profundidade da fase`.
