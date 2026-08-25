@@ -61,10 +61,10 @@ class CitationVerificationTests(unittest.TestCase):
             {"fonte": "entrevista-01.txt", "texto": "Ent\u00e3o, o sistema eleitoral brasileiro \u00e9 o melhor que tem do mundo."},
         ]
         resultado = verificar_citacoes(
-            ["o nosso sistema eleitoral brasileiro \u00e9 o melhor que tem do mundo"],
+            ["o nosso sistema eleitoral brasileiro é o melhor que tem do mundo"],
             fontes=fontes,
         )
-        item = resultado["o nosso sistema eleitoral brasileiro \u00e9 o melhor que tem do mundo"]
+        item = resultado["o nosso sistema eleitoral brasileiro é o melhor que tem do mundo"]
         self.assertEqual(item["status"], "substituir")
         self.assertEqual(item["fonte"], "entrevista-01.txt")
         self.assertEqual(item["trecho_correspondente"], "Ent\u00e3o, o sistema eleitoral brasileiro \u00e9 o melhor que tem do mundo.")
