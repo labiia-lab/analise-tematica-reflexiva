@@ -16,6 +16,16 @@
 
 **Conceito organizador central:**  
 
+**Definição temática (1–2 parágrafos):**
+
+[Definição formal escrita que fixa o escopo exato do tema, seus limites analíticos e a essência do conceito organizador (2016-capitulo). Não substituir por lista de campos: a redação integrada é onde ambiguidades de escopo aparecem.]
+
+**Título:**  
+
+- ativo, conciso e informativo?
+- expressa o conceito organizador em vez de rótulo burocrático (“Barreiras”, “Experiências de...”, “Impactos”)?
+- incorpora expressão literal marcante do corpus quando pertinente, como em “Ser ‘mentalmente voltado para o exercício’ (ou não)”?
+
 **Afirmação interpretativa:**  
 
 **Genealogia:**
@@ -26,9 +36,17 @@
 
 **Excertos-âncora verificados:**
 
-| ID | Excerto literal | Fonte/localização | Verificação | Função analítica |
-|---|---|---|---|---|
-| Q001 |  |  | verified_exact |  |
+| ID | Excerto literal | Fonte/localização | Verificação | Função analítica | Uso |
+|---|---|---|---|---|---|
+| Q001 |  |  | verified_exact |  | analítico/ilustrativo |
+
+**Teste do uso analítico (2016-capitulo):**
+
+- é possível remover o excerto ou substituí-lo por outro equivalente sem alterar o sentido da narrativa analítica?
+  - sim → uso ilustrativo: aceitável como apoio, mas o tema precisa de pelo menos uma âncora analítica;
+  - não → uso analítico: o excerto é insubstituível e sustenta a interpretação.
+
+Âncoras centrais de cada tema devem ser de uso analítico. Uso meramente ilustrativo não sustenta a interpretação.
 
 **Rival interpretativa mais forte:**  
 
@@ -56,6 +74,28 @@
 
 ## 5. Mapa final
 
+### Estrutura para o diagrama
+
+Preencher o JSON do script `scripts/gerar_mapa_tematico.py` com a estrutura real:
+
+| Código | Tema candidato | Tema final |
+|---|---|---|
+|  |  |  |
+
+- quebras de linha manuais quando necessário (campo `linhas`);
+- agrupamentos conceituais marcados com `grupo` (vazio extra entre blocos);
+- um tema final por bloco conceitual distinto.
+
+Comando:
+
+```text
+python "<PASTA_DA_SKILL>/scripts/gerar_mapa_tematico.py" --input mapa.json --output mapa-tematico.svg
+```
+
+Produzir sempre os dois arquivos: `mapa-tematico.svg` (editável) e `mapa-tematico.png` (1448 × 1086 px). O script reduz automaticamente a fonte de cada linha em passos de 0,5 px até o texto caber dentro do quadro — conferir no stderr se algum item não pôde ser ajustado e encurtar o texto nesse caso. Ajustes visuais e regras de tipografia, cores e setas estão em `referencias/visualizacoes.md`.
+
+### Esboço textual
+
 ```text
 Resposta integradora
 ├── Tema final 1
@@ -75,8 +115,13 @@ Resposta integradora
 | Requisito | PASS/FAIL/N/A | Evidência |
 |---|---|---|
 | passaporte completo por tema |  |  |
+| definição temática formal redigida |  |  |
+| títulos expressam conceito organizador |  |  |
 | genealogia e fronteiras explícitas |  |  |
 | âncoras `verified_exact` |  |  |
+| âncoras centrais de uso analítico |  |  |
+| mapa temático vetorial produzido (SVG) e PNG correspondente |  |  |
+| nenhum texto fora do quadro |  |  |
 | rival, resíduo e incerteza visíveis |  |  |
 
 Arquivos de verificação: `citacoes.jsonl` e `verificacao-citacoes.jsonl`.
@@ -91,8 +136,13 @@ Arquivos de verificação: `citacoes.jsonl` e `verificacao-citacoes.jsonl`.
 ## 9. Critério de saída
 
 - [ ] Cada tema possui conceito, afirmação e fronteira.
+- [ ] Cada tema possui definição temática formal de 1–2 parágrafos.
+- [ ] Os títulos expressam conceitos organizadores, não rótulos descritivos.
 - [ ] Cada passaporte está completo.
 - [ ] Excertos-âncora estão `verified_exact` e localizados.
+- [ ] As âncoras centrais são de uso analítico, não meramente ilustrativo.
+- [ ] O mapa temático foi gerado em SVG com PNG correspondente e representa os agrupamentos reais.
+- [ ] Nenhum texto ficou para fora do quadro (verificado pelo gerador).
 - [ ] Rival, evidência decisiva e resíduo estão visíveis.
 - [ ] Não há confiança numérica.
 - [ ] O mapa final preserva complexidade sem redundância.

@@ -81,7 +81,11 @@ Minimizar dados, registrar processamento local/remoto quando conhecido e não in
 
 ## 4. Relato
 
-Um relato inspirado em TROUT-AI, COREQ e SRQR deve incluir, quando aplicável:
+Referência primária de relato: as Diretrizes de Relato para Análise Temática Reflexiva (RTARG, Braun e Clarke, 2024), desenvolvidas como alternativa metodologicamente congruente a checklists como COREQ. Usar RTARG como guia, não como lista prescritiva.
+
+**Cautela com COREQ e instrumentos genéricos:** itens de COREQ exigem concordância entre codificadores e alcance de saturação, coagindo autores reflexivos a reportar marcadores estranhos ao método (2024, "Invasão de preceitos neopositivistas", item 3). Quando um periódico exigir COREQ, declarar quais itens não se aplicam à tradição reflexiva e por quê. Ferramentas inspiradas em TROUT-AI e SRQR permanecem úteis para documentar IA; não substituem a congruência com a abordagem.
+
+Um relato deve incluir, quando aplicável:
 
 - modelo, versão, data e ambiente;
 - parâmetros expostos;

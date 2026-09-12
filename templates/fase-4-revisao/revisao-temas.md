@@ -1,8 +1,6 @@
 # F4 — Contestação e revisão
 
-**REGRA OBRIGATÓRIA — Orçamento temático:**
-Regra de orçamento temático: a análise deve convergir para 4-8 temas finais. Nunca abaixo de 4. Acima de 8, apenas com boa justificativa explícita. Com 10 ou mais temas, tentar agregar da maneira mais substantiva possível para chegar a 8 ou menos, agrupando por significado compartilhado, e não por contagem ou conveniência.
-
+**Regra obrigatória — orçamento temático:** a análise deve convergir para 4-8 temas finais. Nunca abaixo de 4. Acima de 8, apenas com boa justificativa explícita. Com 10 ou mais temas, tentar agregar da maneira mais substantiva possível para chegar a 8 ou menos, agrupando por significado compartilhado, e não por contagem ou conveniência.
 
 ## 1. Configuração da rodada
 
@@ -58,13 +56,37 @@ Regra de orçamento temático: a análise deve convergir para 4-8 temas finais. 
 
 O auditor não decide significados.
 
-## 6. Decisões do integrador
+## 6. Auditoria de deslizamento positivista
+
+Verificar ativamente na própria saída se noções pós-positivistas se infiltraram no desenho reflexivo (2023; 2024):
+
+| Sinal | Presente? | Evidência | Correção |
+|---|---|---|---|
+| codificação independente visando concordância ou consenso |  |  |  |
+| cálculo ou menção de confiabilidade entre codificadores |  |  |  |
+| estabilização de codebook fechado com critérios rígidos |  |  |  |
+| linguagem de neutralidade, "controle de viés" ou objetividade como promessa |  |  |  |
+| saturação invocada como certificado de encerramento |  |  |  |
+| validação de participantes tratada como verificação de verdade |  |  |  |
+| procedimento incompatível declarado sem justificativa de coerência |  |  |  |
+
+### Colaboração entre leitores
+
+Se houver múltiplos codificadores, agentes ou revisores: a função da colaboração é **enriquecer a leitura**, não produzir consenso. Discussão dialógica entre leitores — na figura dos "amigos críticos" ou correflexão — substitui checagem cruzada, codificação cega e acordo interexaminadores (2018; 2024). Registrar divergências preservadas, não resolvidas por maioria.
+
+| Leitor | Divergência observada | Leitura preservada | Efeito no mapa |
+|---|---|---|---|
+|  |  |  |  |
+
+A convergência entre agentes não equivale a triangulação humana nem a validação.
+
+## 7. Decisões do integrador
 
 | Tema candidato | Decisão | Razão | Elementos preservados | Elementos recusados | Revisão necessária |
 |---|---|---|---|---|---|
 |  | manter/revisar/dividir/fundir/abandonar |  |  |  |  |
 
-## 7. Revisão dirigida
+## 8. Revisão dirigida
 
 Preencher somente se a rodada alterar a estrutura:
 
@@ -76,19 +98,21 @@ Preencher somente se a rodada alterar a estrutura:
 
 Não iniciar nova rodada completa.
 
-## 8. Registro de interação com IA
+## 9. Registro de interação com IA
 
 | ID | Fase/função | Ambiente/modelo | Objetivo e prompt sanitizado | Fontes por ID | Artefato | Verificação | Intervenção humana/efeito |
 |---|---|---|---|---|---|---|---|
 |  | F4 |  |  |  |  |  |  |
 
-## 9. Gate F4
+## 10. Gate F4
 
 | Requisito | PASS/FAIL/N/A | Evidência |
 |---|---|---|
 | rival material produzida |  |  |
 | estatuto da rival demonstrado |  |  |
 | evidências auditadas |  |  |
+| deslizamento positivista auditado na própria saída |  |  |
+| colaboração dialógica sem consenso forçado (quando houver múltiplos leitores) |  |  |
 | integração justificada, sem votação |  |  |
 | condições de enfraquecimento/derrota testadas |  |  |
 
@@ -96,15 +120,17 @@ Contestação `ausente` recebe `FAIL`. Contestação `informada` pode receber `P
 
 Se não houver abandono ou fusão substantiva, registrar para cada tema por que a rival e as evidências não atingiram a condição previamente declarada. Ausência de mudança não é falha automática; ausência de teste é.
 
-## 10. Exemplo curto
+## 11. Exemplo curto
 
 A rival argumenta que “prudência” confunde dois processos: cuidado com evidência e autoproteção diante de conflito. A crítica modifica o mapa: o tema final passa a organizar **a conquista do direito de falar**, preservando as duas forças em tensão.
 
-## 11. Critério de saída
+## 12. Critério de saída
 
 - [ ] A rival é plausível e não caricatural.
 - [ ] O estatuto da rival está correto e demonstrado.
 - [ ] A crítica mais forte foi respondida.
+- [ ] Nenhum sinal de deslizamento positivista permanece sem correção ou justificativa.
+- [ ] A colaboração buscou riqueza interpretativa, não consenso.
 - [ ] As condições registradas em F3 foram testadas antes da decisão.
 - [ ] Excertos publicados foram conferidos.
 - [ ] Há resíduo material por tema ou justificativa para ausência.

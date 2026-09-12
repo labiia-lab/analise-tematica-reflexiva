@@ -30,6 +30,8 @@ Aplicar **contestabilidade interpretativa incorporada**:
 11. Não inventar dados, contexto, autorização, parâmetros, citações ou validação.
 12. Preservar a proveniência de material humano e algorítmico.
 13. Manter afirmações proporcionais ao corpus efetivamente processado.
+14. Localizar a tradição da AT declarada e rejeitar composições metodológicas não justificadas (“métodos Frankenstein”) e deslizamento positivista.
+15. Não tratar member checking, saturação ou concordância como critérios de qualidade da ATR reflexiva.
 
 ## Configurar a execução
 
@@ -73,6 +75,7 @@ Resolver todos os caminhos abaixo relativamente à pasta que contém este `SKILL
 - Ler `referencias/contestabilidade-interpretativa.md` antes de F4–F5.
 - Ler `referencias/colaboracao-e-auditoria.md` para rotas, registros de IA, estatutos e participação humana.
 - Ler `referencias/ia-em-at.md` ao planejar ou auditar qualquer intervenção de IA.
+- Ler `referencias/visualizacoes.md` ao produzir o mapa temático em F5–F6.
 - Ler `referencias/fundamentacao-e-proveniencia.md` ao justificar decisões acadêmicas.
 - Ler `referencias/exemplo-integrado.md` somente quando um exemplo preenchido ajudar.
 
@@ -91,6 +94,16 @@ python "<PASTA_DA_SKILL>/scripts/verificar_citacoes.py" --inventario CORPUS --ou
 ```
 
 Manter `CORPUS` restrito às fontes de entrada e gravar a saída fora dele. O `manifesto-corpus.jsonl` registra caminho relativo, bytes, linhas e SHA-256. Ele prova a identidade e a integridade dos arquivos inventariados, não que tenham sido lidos. Reconciliar o manifesto com intervalos percorridos, lotes e memos por fonte em F1; tratar estes últimos como trilha processual auditável, não como prova externa de cognição.
+
+### Mapa temático
+
+Quando houver acesso local aos arquivos e Python, gerar o mapa em SVG vetorial a partir da estrutura real da análise (nunca como imagem por modelo generativo):
+
+```text
+python "<PASTA_DA_SKILL>/scripts/gerar_mapa_tematico.py" --input mapa.json --output mapa-tematico.svg
+```
+
+O JSON registra códigos, temas candidatos, temas finais, agrupamentos e quebras de linha manuais. A execução produz **dois arquivos obrigatórios**: o SVG vetorial editável e o PNG de 1448 × 1086 px (`mapa-tematico.png`), pronto para inserção em Word, PDF ou slide. O script aplica a grade de três colunas, a tipografia, as cores e as setas descritas em `referencias/visualizacoes.md`; valida que todo código tem destino e que todo tema candidato chega a um tema final; mede cada linha com a fonte real e reduz a fonte em passos de 0,5 px até o texto caber dentro do quadro, reportando qualquer item que não caiba; e exige um renderizador de PNG (Pillow, cairosvg ou Inkscape), falhando com erro explícito se não houver. O mapa apresenta a arquitetura; os passaportes sustentam a interpretação.
 
 ### Citações
 
@@ -166,7 +179,8 @@ Não repetir uma fase indefinidamente. Uma limitação reconhecida não se conve
 3. **Advogado do diabo** — atacar coerência, fronteiras e inferências.
 4. **Guardião experiencial** — localizar ambiguidades, contradições e perdas situadas.
 5. **Auditor de evidências** — conferir cobertura, literalidade e genealogia sem decidir significados.
-6. **Integrador** — manter, revisar, dividir, fundir ou abandonar com razões explícitas.
+6. **Auditor de congruência** — varrer a própria saída em busca de deslizamento positivista e misturas metodológicas não justificadas.
+7. **Integrador** — manter, revisar, dividir, fundir ou abandonar com razões explícitas.
 
 Realizar uma rodada adversarial completa e, quando necessário, uma revisão dirigida somente dos temas afetados.
 
@@ -174,63 +188,63 @@ Realizar uma rodada adversarial completa e, quando necessário, uma revisão dir
 
 Preencher `templates/fase-0-decisoes/decisoes-metodologicas.md`.
 
-Definir pergunta, escopo, posição epistemológica, eixos, unidade, rota, profundidade, cobertura, ética e privacidade. Registrar uma matriz de delegação F0–F6, ambiente/modelo, parâmetros expostos, alinhamento entre capacidades da IA e posição metodológica, mapa humano e plano de verificação.
+Definir pergunta, escopo, posição epistemológica, eixos, unidade, rota, profundidade, cobertura, ética e privacidade. Localizar a tradição da análise temática no espectro small q ↔ Big Q (reflexiva, codebook, confiabilidade de codificação, codificação temática) e avaliar a adequação do método contra alternativas (análise de conteúdo, IPA, teoria fundamentada, análise de discurso), registrando divergências ou composições planejadas. Registrar uma matriz de delegação F0–F6, ambiente/modelo, parâmetros expostos, alinhamento entre capacidades da IA e posição metodológica, mapa humano e plano de verificação.
 
 **Saídas:** `00-constituicao-analitica.md` e, quando houver arquivos locais, `manifesto-corpus.jsonl`.
 
-**Gate:** `PASS` somente quando decisões, lacunas, riscos e limites de alegação estiverem explícitos. Consentimento desconhecido bloqueia alegações de aprovação ética, não a descrição analítica autorizada pelo usuário.
+**Gate:** `PASS` somente quando decisões, tradição localizada, adequação do método, lacunas, riscos e limites de alegação estiverem explícitos. Consentimento desconhecido bloqueia alegações de aprovação ética, não a descrição analítica autorizada pelo usuário.
 
 ## F1 — Familiarização
 
 Preencher `templates/fase-1-familiarizacao/notas-de-familiarizacao.md`.
 
-Ler todas as fontes acessíveis. Produzir memos por fonte ou lote, síntese transversal e memo reflexivo com tensões, mudanças de posição, expressões situadas e perguntas.
+Ler todas as fontes acessíveis. Produzir memos por fonte ou lote, síntese transversal e memo reflexivo com tensões, mudanças de posição, expressões situadas e perguntas. Em material de grupos focais ou interacional, registrar separadamente a negociação de sentidos entre participantes. Avaliar a proporcionalidade do corpus por poder de informação, densidade dialógica e riqueza, não por contagem; registrar quando amostras volumosas podem achatar nuances e declarar decisões pragmáticas de recorte sem invocar saturação como certificado.
 
 **Saída:** `01-familiarizacao.md`.
 
-**Gate:** `PASS` somente quando inventário e cobertura coincidirem. Cobertura parcial exige `FAIL` para integralidade e delimitação explícita do subconjunto.
+**Gate:** `PASS` somente quando inventário e cobertura coincidirem e a proporcionalidade do corpus for avaliada. Cobertura parcial exige `FAIL` para integralidade e delimitação explícita do subconjunto.
 
 ## F2 — Codificação reflexiva
 
 Preencher `templates/fase-2-codigos/codificacao-reflexiva.md`.
 
-Codificar todo material relevante, permitindo múltiplos códigos por excerto e revisão durante o processo. Para cada código material, registrar significado, excerto, localização, nota interpretativa, origem e mudanças. Distinguir códigos humanos, gerados, revisados e recusados.
+Executar no mínimo duas passagens completas pelo corpus, a segunda orientada ao refinamento semântico e ao desenvolvimento de códigos latentes. Codificar todo material relevante, permitindo múltiplos códigos por excerto e revisão durante o processo. Para cada código material, registrar significado, excerto, localização, nota interpretativa, origem e mudanças. Distinguir códigos humanos, gerados, revisados e recusados. Aplicar o teste de remoção dos dados: retirado o corpus, a lista de códigos deve evocar o conteúdo e as nuances dos excertos; caso contrário, retrabalhar e especificar os rótulos. Não rotular como latente ou conceitual um código que apenas nomeia o conteúdo manifesto.
 
 **Saída:** `02-codificacao-reflexiva.md`.
 
-**Gate:** `PASS` somente com códigos específicos, distribuídos pelo corpus acessível e ligados a evidências localizadas. Excertos não verificados não podem sustentar temas finais como citações.
+**Gate:** `PASS` somente com códigos específicos, distribuídos pelo corpus acessível, ligados a evidências localizadas, com duas passagens executadas e teste de remoção aplicado. Excertos não verificados não podem sustentar temas finais como citações.
 
 ## F3 — Temas candidatos
 
 Preencher `templates/fase-3-temas/temas-candidatos.md`.
 
-Construir padrões de significado compartilhado. Para cada tema candidato, explicitar conceito organizador, afirmação, evidências, fronteiras, variação, tensões e condições prévias de enfraquecimento ou derrota. Não finalizar a primeira solução.
+Construir padrões de significado compartilhado. Para cada tema candidato, explicitar conceito organizador, afirmação, evidências, fronteiras, variação, tensões e condições prévias de enfraquecimento ou derrota. Aplicar o teste do recipiente versus personagem: tema não é depósito de tudo o que foi dito sobre um assunto, mas personagem central da história. Registrar relações hierárquicas, fronteiras e interconexões entre temas. Vigiar a hipertrofia temática: preferir poucos temas densos e multifacetados a dezenas de temas ou subtemas fragmentados por tópicos. Não finalizar a primeira solução.
 
 **Saída:** `03-temas-candidatos.md`.
 
-**Gate:** `PASS` somente quando os temas responderem à pergunta e não forem tópicos, perguntas de entrevista ou resumos de domínio.
+**Gate:** `PASS` somente quando os temas responderem à pergunta e não forem tópicos, perguntas de entrevista, resumos de domínio ou recipientes de coleta.
 
 ## F4 — Contestação e revisão
 
 Preencher `templates/fase-4-revisao/revisao-temas.md`.
 
-Produzir a melhor rival disponível, registrar seu estatuto e comparar argumentos sem votação ou concordância. Testar coerência, distinção, cobertura, tensão, resíduo experiencial e as condições registradas em F3. Registrar manter, revisar, dividir, fundir ou abandonar. Se nenhum tema for abandonado ou fundido substantivamente, explicar por tema por que a rival e a evidência não satisfizeram sua condição prévia de enfraquecimento ou derrota.
+Produzir a melhor rival disponível, registrar seu estatuto e comparar argumentos sem votação ou concordância. Auditar a própria saída contra o deslizamento positivista: codificação independente visando consenso, confiabilidade entre codificadores, codebook fechado, vocabulário de neutralidade, saturação como certificado e validação de participantes como verificação de verdade — corrigir ou justificar. Quando houver múltiplos leitores, a colaboração busca riqueza interpretativa, não consenso; divergências são preservadas. Testar coerência, distinção, cobertura, tensão, resíduo experiencial e as condições registradas em F3. Registrar manter, revisar, dividir, fundir ou abandonar. Se nenhum tema for abandonado ou fundido substantivamente, explicar por tema por que a rival e a evidência não satisfizeram sua condição prévia de enfraquecimento ou derrota.
 
 **Saída:** `04-contestacao-e-revisao.md`.
-Regra de orçamento temático: a análise deve convergir para 4-8 temas finais. Nunca abaixo de 4. Acima de 8, apenas com boa justificativa explícita. Com 10 ou mais temas, tentar agregar da maneira mais substantiva possível para chegar a 8 ou menos, agrupando por significado compartilhado, e não por contagem ou conveniência.
 
+**Regra de orçamento temático:** a análise deve convergir para 4-8 temas finais. Nunca abaixo de 4. Acima de 8, apenas com boa justificativa explícita. Com 10 ou mais temas, tentar agregar da maneira mais substantiva possível para chegar a 8 ou menos, agrupando por significado compartilhado, e não por contagem ou conveniência.
 
-**Gate:** `PASS` somente quando houver rival material, evidência auditada e mudança ou recusa justificada. Contestação `ausente` é `FAIL`; contestação `informada` pode passar, mas não virar independente.
+**Gate:** `PASS` somente quando houver rival material, evidência auditada, deslizamento positivista auditado e mudança ou recusa justificada. Contestação `ausente` é `FAIL`; contestação `informada` pode passar, mas não virar independente.
 
 ## F5 — Temas finais e passaportes
 
 Preencher `templates/fase-5-definicao/definicao-temas-finais.md`.
 
-Para cada tema, registrar nome, conceito organizador, afirmação, história, genealogia, excertos-âncora verificados, rival, evidência decisiva, resíduo, decisão, incerteza, estatuto da rival e participação humana.
+Para cada tema, registrar nome, conceito organizador, definição temática formal de um a dois parágrafos fixando escopo e limites, afirmação, história, genealogia, excertos-âncora verificados, rival, evidência decisiva, resíduo, decisão, incerteza, estatuto da rival e participação humana. Os títulos devem ser ativos e expressar o conceito organizador, não rótulos burocráticos. As âncoras centrais devem ser de uso analítico: removê-las ou substituí-las alteraria o sentido da narrativa; excertos meramente ilustrativos não sustentam a interpretação.
 
-**Saídas:** `05-temas-finais-e-passaportes.md` e, quando houver excertos candidatos, `citacoes.jsonl` e `verificacao-citacoes.jsonl`.
+**Saídas:** `05-temas-finais-e-passaportes.md`, `mapa-tematico.svg`, `mapa-tematico.png` e, quando houver excertos candidatos, `citacoes.jsonl` e `verificacao-citacoes.jsonl`.
 
-**Gate:** `PASS` somente quando cada tema for coerente, distinto, contestável e sustentado por evidência verificável. Não usar percentuais de confiança.
+**Gate:** `PASS` somente quando cada tema for coerente, distinto, contestável, tiver definição formal e for sustentado por evidência verificável e âncoras de uso analítico. Não usar percentuais de confiança.
 
 ## F6 — Relato
 
@@ -239,13 +253,15 @@ Preencher `templates/fase-6-relatorio/relatorio-final.md`.
 Produzir:
 
 1. **corpo principal** — método, narrativa integradora, temas, excertos e conclusão;
-2. **apêndice auditável** — passaportes, manifesto de IA, delegação, interações, mapa humano, cobertura, verificação, gates e decisões adversariais.
+2. **apêndice auditável** — passaportes, mapa temático, manifesto de IA, delegação, interações, mapa humano, cobertura, verificação, gates, painel diagnóstico e decisões adversariais.
+
+Aplicar as quatro perguntas de auditoria reflexiva: a tradição foi declarada e situada? os temas evidenciam trabalho interpretativo ativo em torno de conceitos organizadores? a proporção narrativa/extratos sustenta teorização densa? a linguagem evita emergência passiva e dispositivos interexaminadores? Usar as Diretrizes de Relato para Análise Temática Reflexiva (RTARG, Braun e Clarke, 2024) como referência primária; tratar COREQ e checklists equivalentes com cautela, declarando itens incompatíveis quando exigidos.
 
 Markdown é obrigatório. Produzir DOCX ou outro formato quando solicitado e suportado; a indisponibilidade de formato adicional não muda o estatuto metodológico.
 
-**Saída universal:** `06-relatorio-final.md`. Anexar `manifesto-corpus.jsonl` quando houver corpus local, `manifesto-derivados.jsonl` quando houver conversão e `citacoes.jsonl` mais `verificacao-citacoes.jsonl` quando o relatório usar ou avaliar excertos; registrar `N/A` no apêndice quando um artefato não se aplicar.
+**Saída universal:** `06-relatorio-final.md`. Anexar `manifesto-corpus.jsonl` quando houver corpus local, `manifesto-derivados.jsonl` quando houver conversão, `mapa-tematico.svg` e `mapa-tematico.png` quando houver arquitetura temática e `citacoes.jsonl` mais `verificacao-citacoes.jsonl` quando o relatório usar ou avaliar excertos; registrar `N/A` no apêndice quando um artefato não se aplicar.
 
-**Gate:** `PASS` somente quando o texto estiver alinhado a F0, todas as citações publicadas estiverem verificadas e nenhum estatuto exceder o trabalho realizado.
+**Gate:** `PASS` somente quando o texto estiver alinhado a F0, houver congruência metodológica, todas as citações publicadas estiverem verificadas, o painel diagnóstico estiver preenchido e nenhum estatuto exceder o trabalho realizado.
 
 ## Estatuto final
 
@@ -268,12 +284,19 @@ Não prometer verdade, publicação, equivalência humana ou aprovação ética.
 ## Checklist final
 
 - [ ] Inventário e cobertura foram reconciliados.
+- [ ] A tradição da AT está localizada e a congruência metodológica foi verificada.
 - [ ] Toda citação publicada está `verified_exact`.
 - [ ] Códigos e temas mantêm genealogia até a fonte.
+- [ ] O teste de remoção dos dados foi aplicado e as duas passagens executadas.
 - [ ] Temas possuem conceito organizador e respondem à pergunta.
+- [ ] Temas não funcionam como recipientes de coleta e a arquitetura evita hipertrofia.
 - [ ] Rival e resíduo material foram tratados.
 - [ ] Estatuto da rival está correto.
-- [ ] Cada tema possui passaporte.
+- [ ] Cada tema possui passaporte com definição temática formal.
+- [ ] Âncoras centrais são de uso analítico, não meramente ilustrativo.
 - [ ] Delegação, interações de IA e participação humana foram registradas.
+- [ ] Deslizamento positivista foi auditado e correções/justificativas estão visíveis.
+- [ ] O painel diagnóstico foi preenchido.
+- [ ] O mapa temático é vetorial, editável, tem PNG correspondente e representa os agrupamentos reais da análise.
 - [ ] Gates e limitações permanecem visíveis.
 - [ ] O estatuto final corresponde ao trabalho realizado.

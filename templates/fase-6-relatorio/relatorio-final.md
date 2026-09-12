@@ -30,6 +30,8 @@ Formulação máxima permitida:
 
 ### Delineamento de ATR
 
+- tradição da AT e posição no espectro small q ↔ Big Q;
+- adequação do método à pergunta;
 - posição epistemológica;
 - indução/dedução;
 - semântico/latente;
@@ -41,6 +43,10 @@ Formulação máxima permitida:
 
 [Descrever ações e mudanças reais, não copiar instruções da skill.]
 
+### Congruência metodológica
+
+[Declarar como ontologia, procedimentos, conceituação de temas, critérios de qualidade e estilo de relato apontam na mesma direção. Divergências exigem justificativa.]
+
 ### Contestabilidade interpretativa incorporada
 
 [Explicar rival, funções executadas, integração e limite de rodadas.]
@@ -49,17 +55,21 @@ Formulação máxima permitida:
 
 [Apresentar a resposta geral antes dos temas.]
 
+Inserir o mapa temático vetorial (`mapa-tematico.svg`), gerado em F5, como Figura 1. O mapa ocupa entre meia e uma lauda e é a visão sinóptica da estrutura temática; a narrativa e os passaportes permanecem a instância interpretativa.
+
 ## 4. Resultados
 
 ### Tema 1 — [nome]
 
 **Afirmação:**  
 
-[Desenvolver interpretação, excertos, variação, tensão e contribuição para a pergunta.]
+**Definição temática:**  
+
+[Desenvolver interpretação, excertos, variação, tensão e contribuição para a pergunta. Manter proporção coerente entre narrativa analítica e extratos: cerca de 50:50 em estudos predominantemente descritivos; dominância da narrativa autoral em estudos conceituais ou críticos (2016-capitulo).]
 
 > “[Excerto literal]” (Fonte/localização)
 
-[Interpretar o excerto; não deixá-lo falar sozinho.]
+[Interpretar o excerto; não deixá-lo falar sozinho. Âncoras centrais devem ser de uso analítico: removê-las ou substituí-las destruiria o sentido do argumento.]
 
 [Repetir para os demais temas.]
 
@@ -81,6 +91,19 @@ Formulação máxima permitida:
 
 [Conceitos organizadores, riqueza, distinção, variação e narrativa.]
 
+### Quatro perguntas de auditoria reflexiva (2020)
+
+1. A tradição de AT foi declarada e situada?  
+2. A geração de temas evidencia trabalho interpretativo ativo em torno de conceitos organizadores?  
+3. A proporção narrativa/extratos sustenta teorização densa e contextualizada?  
+4. A linguagem evita emergência passiva e dispositivos interexaminadores?  
+
+### Congruência com a tradição declarada
+
+- padrões de qualidade usados coerentes com a abordagem?
+- instrumentos externos (COREQ ou equivalentes) aplicados com cautela e justificativa?
+- nenhuma prática pós-positivista (concordância, consenso, saturação, validação de participantes como verificação) mantida sem exame?
+
 ### Tríade adicional
 
 - rastreabilidade:
@@ -101,6 +124,19 @@ Formulação máxima permitida:
 ## A. Passaportes dos temas
 
 [Inserir os passaportes de F5.]
+
+## A2. Mapa temático
+
+Arquivos: `mapa-tematico.svg` (vetorial, editável) e `mapa-tematico.png` (1448 × 1086 px). Especificação em `referencias/visualizacoes.md`.
+
+| Verificação | Resultado |
+|---|---|
+| três colunas com agrupamentos reais |  |
+| sem sobreposição ou texto cortado |  |
+| nenhum texto fora do quadro (ajuste de fonte aplicado ou item reportado) |  |
+| setas nos corredores, sem atravessar caixas |  |
+| legível em ~70% e em página A4 |  |
+| PNG 1448 × 1086 produzido junto do SVG |  |
 
 ## B. Manifesto estruturado de IA
 
@@ -174,11 +210,38 @@ Sem avaliador independente, os gates são autoavaliação auditável, não valid
 
 Ver o caso completo em `referencias/exemplo-integrado.md`.
 
+## K. Painel diagnóstico
+
+Auditoria da própria saída contra os problemas catalogados (2020, 2023, 2024):
+
+| Problema/recomendação | Presente? | Evidência | Correção |
+|---|---|---|---|
+| AT tratada como abordagem singular |  |  |  |
+| citação cerimonial de manuais (procedimentos contradizem fontes) |  |  |  |
+| misturas metodológicas injustificadas |  |  |  |
+| AT conduzida como ateórica |  |  |  |
+| confinamento ao realismo descritivo |  |  |  |
+| expectativa de análise puramente descritiva |  |  |  |
+| confusão entre códigos e temas |  |  |  |
+| temas como tópicos ou recipientes de coleta |  |  |  |
+| linguagem passiva de emergência |  |  |  |
+| formalismo processual cego |  |  |  |
+| arquitetura temática inflada (20–30 temas/subtemas) |  |  |  |
+| deslizamento positivista residual |  |  |  |
+| member checking tratado como validação |  |  |  |
+| saturação invocada sem conceituação |  |  |  |
+
+Referência de relato: RTARG (2024). COREQ ou checklists equivalentes, quando exigidos por periódico, declarados com os itens incompatíveis justificados.
+
 ## Checklist final
 
 - [ ] A narrativa responde à pergunta.
 - [ ] Cada tema é desenvolvido com interpretação e excertos.
 - [ ] Todas as citações publicadas estão `verified_exact`.
+- [ ] As âncoras centrais são de uso analítico.
+- [ ] A tradição da AT está declarada e os procedimentos são congruentes com ela.
+- [ ] O mapa temático foi inserido e é vetorial e legível, com PNG correspondente.
+- [ ] O painel diagnóstico foi preenchido.
 - [ ] Passaportes, manifesto, delegação, interações, mapa humano, cobertura e gates estão anexados.
 - [ ] O estatuto corresponde ao trabalho realizado.
 - [ ] Limitações permanecem visíveis.

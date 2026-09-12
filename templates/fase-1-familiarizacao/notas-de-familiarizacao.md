@@ -14,6 +14,15 @@ Manifesto de identidade: `manifesto-corpus.jsonl`
 
 O manifesto comprova quais bytes foram inventariados, não prova leitura. A evidência de processamento reúne memos, intervalos e lotes para tornar a alegação reconferível; não a transforma em validação independente.
 
+### Proporcionalidade do corpus
+
+- o corpus foi dimensionado por poder de informação, densidade dialógica e riqueza, não por contagem de participantes?
+- alguma fonte foi incluída por volume em vez de relevância analítica?
+- amostras muito grandes achataram nuances? (registrar risco e mitigação)
+- decisões pragmáticas de recorte (prazo, orçamento, acesso) declaradas sem invocar saturação como certificado:
+
+Não tratar cobertura integral como sinônimo de suficiência analítica. A suficiência se avalia pela capacidade do material de responder à pergunta com profundidade (2019-saturação; 2016a).
+
 ## 2. Memo por fonte
 
 ### [ID/fonte]
@@ -25,6 +34,13 @@ O manifesto comprova quais bytes foram inventariados, não prova leitura. A evid
 - relação inicial com a pergunta;
 - ideias provisórias de código;
 - dúvidas que exigem retorno.
+
+Em grupos focais ou material interacional, registrar separadamente do indivíduo:
+
+- como os sentidos são negociados, contestados ou acomodados entre participantes;
+- turnos que mudam de direção após intervenção de outro participante;
+- convergências que podem ser efeito da situação coletiva, não da posição individual;
+- silêncios e falas interrompidas no contexto imediato.
 
 [Repetir por fonte ou lote, sem transformar o memo em resumo mecânico.]
 
@@ -66,6 +82,8 @@ Não criar inventário exaustivo. Registrar somente elementos que possam alterar
 | inventário reconciliado com cobertura |  |  |
 | todas as fontes acessíveis percorridas |  |  |
 | memos contextualizados produzidos |  |  |
+| proporcionalidade do corpus avaliada por poder de informação |  |  |
+| dinâmica interacional registrada (quando aplicável) |  |  |
 | subconjunto e limitações delimitados |  |  |
 
 Cobertura parcial recebe `FAIL` para integralidade, ainda que o fluxo continue.
@@ -80,6 +98,8 @@ Ver `referencias/exemplo-integrado.md`.
 
 - [ ] Todas as fontes acessíveis foram percorridas.
 - [ ] Há memos contextualizados, não apenas resumos.
+- [ ] A proporcionalidade do corpus foi avaliada por poder de informação, não por contagem.
+- [ ] Material interacional foi distinguido de material individual, quando houver.
 - [ ] A síntese preserva diferenças.
 - [ ] Ideias provisórias não foram tratadas como temas finais.
 - [ ] A posição analítica foi registrada.

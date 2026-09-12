@@ -25,6 +25,23 @@
 
 ## 3. Decisões metodológicas
 
+### Localização na tipologia das escolas
+
+- tradição da análise temática: reflexiva (Big Q) | codebook (medium Q) | confiabilidade de codificação (small q) | outra (nomear)
+- posição no espectro cientificamente descritivo ↔ artisticamente interpretativo:
+- por que a tradição escolhida cohere com a pergunta, a epistemologia e o relato pretendido:
+- divergências ou composições planejadas (justificar ou descartar):
+
+Registrar esta seção como requisito duro: sem ela, misturas ilegítimas ("métodos Frankenstein") passam despercebidas. A skill opera a tradição reflexiva como padrão; usar instrumentos de confiabilidade (concordância interexaminadores, consenso, codebook fechado) exige justificativa explícita de coerência ou a recusa.
+
+### Adequação do método
+
+- a pergunta exige padrões de significado (ATR) ou outra abordagem (análise de conteúdo, IPA, teoria fundamentada, análise de discurso)?
+- o que a ATR pode e não pode responder neste desenho:
+- alternativas descartadas e motivo:
+
+Comparar com a tipologia de 2020a: IPA exige compromisso idiográfico caso a caso; teoria fundamentada visa teoria explicativa com amostragem teórica; análise de conteúdo quantifica frequência; análise de discurso foca linguagem como prática. ATR mapeia e interpreta padrões de sentido sem construir teoria formal nem dissecar microinteração.
+
 ### Orientação epistemológica
 
 [Descrever posição e consequência concreta para o estatuto das falas e das interpretações.]
@@ -137,6 +154,8 @@ Ver `referencias/exemplo-integrado.md`.
 | Requisito | PASS/FAIL/N/A | Evidência |
 |---|---|---|
 | pergunta, corpus e unidade delimitados |  |  |
+| tradição da AT localizada no espectro e justificada |  |  |
+| adequação do método à pergunta avaliada |  |  |
 | eixos e posição coerentes |  |  |
 | delegação e capacidades registradas |  |  |
 | ética, privacidade e limites explícitos |  |  |
@@ -145,6 +164,8 @@ Ver `referencias/exemplo-integrado.md`.
 ## 15. Critério de saída
 
 - [ ] Pergunta, corpus e unidade estão delimitados.
+- [ ] A tradição da AT foi localizada no espectro small q ↔ Big Q e justificada.
+- [ ] A adequação da ATR à pergunta foi avaliada contra alternativas.
 - [ ] Os dois eixos metodológicos foram decididos separadamente.
 - [ ] Rota, profundidade e capacidades foram confirmadas.
 - [ ] Cobertura e limitações foram planejadas.
