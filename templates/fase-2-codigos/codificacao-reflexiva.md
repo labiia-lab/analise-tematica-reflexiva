@@ -8,6 +8,29 @@
 - material humano usado:
 - ajustes feitos durante a fase:
 
+### Passagens pelo corpus
+
+Executar no mínimo duas passagens completas pelo conjunto de dados (2016-capitulo):
+
+| Passagem | Alcance | Foco | Códigos gerados/revisados | Data/registro |
+|---|---|---|---|---|
+| 1ª | todo o corpus acessível | códigos semânticos e primeiros padrões |  |  |
+| 2ª | todo o corpus acessível | refinamento semântico e desenvolvimento de códigos latentes |  |  |
+
+Se a segunda passagem não puder ser executada, registrar como limitação no gate. Códigos declarados semânticos ou latentes devem executar trabalho interpretativo compatível com o rótulo: nomear diretamente o conteúdo manifesto não constitui código conceitual ou latente (2019-saturação).
+
+### Teste de remoção dos dados
+
+Procedimento de verificação de especificidade (2013): recolher o corpus e trabalhar somente com a lista de códigos.
+
+| Teste | Resultado | Ação |
+|---|---|---|
+| a lista de códigos, sozinha, evoca o conteúdo e as nuances dos excertos? | sim/não/parcial | validar ou retrabalhar |
+| códigos que dependem do texto para fazer sentido | [listar] | especificar ou reformular |
+| códigos aplicáveis a quase qualquer fala | [listar] | descartar, fundir ou ancorar em excerto |
+
+Códigos reprovados no teste devem ser retrabalhados e especificados antes do gate.
+
 ## 2. Registro de códigos
 
 | ID | Código | Tipo | ID da citação | Excerto literal | Fonte/localização | Verificação | Nota interpretativa | Origem |
@@ -64,6 +87,8 @@ Não usar a tabela para medir importância por contagem.
 | Requisito | PASS/FAIL/N/A | Evidência |
 |---|---|---|
 | códigos específicos e revisáveis |  |  |
+| duas passagens completas executadas |  |  |
+| teste de remoção dos dados aplicado |  |  |
 | distribuição pelo corpus acessível |  |  |
 | fonte e localização por código material |  |  |
 | citações destinadas à publicação verificadas |  |  |
@@ -79,6 +104,8 @@ Não usar a tabela para medir importância por contagem.
 ## 11. Critério de saída
 
 - [ ] Todo material relevante e acessível foi codificado.
+- [ ] No mínimo duas passagens completas foram executadas.
+- [ ] O teste de remoção dos dados foi aplicado e os códigos vagos foram retrabalhados.
 - [ ] Códigos são específicos e revisáveis.
 - [ ] Excertos, localização e estado de verificação acompanham códigos materiais.
 - [ ] Códigos raros não foram descartados por raridade.

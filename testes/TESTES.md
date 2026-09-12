@@ -40,9 +40,10 @@ Cada cenário deve conter objetivo, prompt, microcorpus ou condição, falha esp
 
 - validar frontmatter e nome;
 - conferir links internos;
-- confirmar 7 templates, 7 referências e 21 cenários;
+- confirmar 7 templates, 8 referências e 21 cenários;
 - executar `python -m unittest discover -s testes -p "test_*.py"`;
-- compilar `scripts/verificar_citacoes.py`;
+- compilar `scripts/verificar_citacoes.py` e `scripts/gerar_mapa_tematico.py`;
+- confirmar que o gerador de mapa reduz a fonte em passos de 0,5 px quando o texto excede a caixa e produz SVG + PNG;
 - confirmar ausência de caches e dependências externas;
 - procurar instruções residuais de NLP, frequência, coocorrência, Kappa ou estabilidade;
 - conferir que o núcleo usa somente o padrão Agent Skills e caminhos relativos;

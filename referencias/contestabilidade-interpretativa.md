@@ -70,6 +70,19 @@ Procura aquilo que a abstração pode tornar genérico:
 
 Não fala em nome de grupos nem reivindica experiência vivida.
 
+### Auditor de congruência
+
+Confere ativamente a própria saída contra o deslizamento positivista (2023; 2024):
+
+- linguagem de neutralidade, "controle de viés" ou objetividade;
+- busca de concordância, consenso ou confiabilidade entre codificadores;
+- estabilização de codebook fechado;
+- saturação como certificado de encerramento;
+- validação de participantes tratada como verificação de verdade;
+- procedimentos incompatíveis com a tradição declarada sem justificativa.
+
+Ao encontrar sinal, exigir correção ou justificativa explícita de coerência; não converter aviso em aprovação.
+
 ### Auditor de evidências
 
 Confere:
@@ -113,20 +126,25 @@ No Essencial, registrar um resíduo material por tema. No Aprofundado, registrar
 
 Preencher para cada tema final:
 
-1. **Nome**
+1. **Nome** (ativo, expressa o conceito organizador)
 2. **Conceito organizador central**
-3. **Afirmação interpretativa**
-4. **Genealogia:** códigos, agrupamentos e mudanças principais
-5. **Excertos-âncora:** literais, localizados e suficientes
-6. **Rival mais forte**
-7. **Evidência decisiva**
-8. **Resíduo experiencial e tratamento**
-9. **Decisão:** manter, revisar, dividir, fundir ou abandonar
-10. **Zona de incerteza**
-11. **Participação humana**
-12. **Estatuto da rival:** independente, informada ou ausente
+3. **Definição temática** (1–2 parágrafos: escopo, limites, essência)
+4. **Afirmação interpretativa**
+5. **Genealogia:** códigos, agrupamentos e mudanças principais
+6. **Excertos-âncora:** literais, localizados, suficientes e de **uso analítico** — insubstituíveis sem perda de sentido (2016-capitulo)
+7. **Rival mais forte**
+8. **Evidência decisiva**
+9. **Resíduo experiencial e tratamento**
+10. **Decisão:** manter, revisar, dividir, fundir ou abandonar
+11. **Zona de incerteza**
+12. **Participação humana**
+13. **Estatuto da rival:** independente, informada ou ausente
 
 Não usar confiança numérica. O passaporte oferece justificação contestável.
+
+### Amigos críticos e member reflections
+
+Quando houver colaboradores, a função é enriquecer a interpretação, não verificar: co-pesquisadores como "amigos críticos" tensionam a leitura reflexivamente (2024). Devolver a análise aos participantes, quando ocorrer, opera como **member reflection** — convite à reflexão que gera novos dados e reconhece divergências —, nunca como verificação de acurácia ou acesso a uma verdade única (2023). Não converter devolutiva em selo de validade.
 
 ## 6. Tríade de qualidade
 

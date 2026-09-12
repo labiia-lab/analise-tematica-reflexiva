@@ -18,7 +18,9 @@ class IntegridadeSkillTest(unittest.TestCase):
         ]
         self.assertFalse([name for name in forbidden if (ROOT / name).exists()])
         self.assertTrue((ROOT / "referencias" / "ia-em-at.md").is_file())
+        self.assertTrue((ROOT / "referencias" / "visualizacoes.md").is_file())
         self.assertTrue((ROOT / "scripts" / "verificar_citacoes.py").is_file())
+        self.assertTrue((ROOT / "scripts" / "gerar_mapa_tematico.py").is_file())
 
         markdown = "\n".join(
             path.read_text(encoding="utf-8")
@@ -102,9 +104,20 @@ class IntegridadeSkillTest(unittest.TestCase):
         self.assertIn("condições de enfraquecimento/derrota testadas", f4)
         self.assertIn("citacoes.jsonl", f6)
         self.assertIn("verificacao-citacoes.jsonl", f6)
+        self.assertIn("mapa-tematico.png", f6)
         self.assertIn("Avaliador/independência", f6)
         self.assertIn("não prova leitura", quality)
         self.assertIn("https://ceur-ws.org/Vol-4114/7_paper.pdf", provenance)
+        visualization = (ROOT / "referencias" / "visualizacoes.md").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("0,5 px", visualization)
+        self.assertIn("mapa-tematico.png", visualization)
+        map_script = (ROOT / "scripts" / "gerar_mapa_tematico.py").read_text(
+            encoding="utf-8"
+        )
+        self.assertIn("PASSO_FONTE = 0.5", map_script)
+        self.assertIn("renderizar_png", map_script)
 
 
 if __name__ == "__main__":

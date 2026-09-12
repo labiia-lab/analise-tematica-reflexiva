@@ -11,14 +11,18 @@ contestação, complementação e validação humana.
   contestação, definição e relatório;
 - constrói temas como padrões de significado, sem tratar frequência ou domínio
   temático como tema por si só;
+- localiza a tradição da análise temática (small q ↔ Big Q) e audita
+  deslizamento positivista, misturas metodológicas e citação cerimonial;
 - exige uma rival interpretativa forte, condições de derrota e resíduos
-  experienciais;
+  experienciais, com orçamento temático de 4–8 temas finais;
 - separa cobertura, evidência, contestação, participação humana, validação e
   prontidão no estatuto final;
 - verifica literalmente os excertos publicados quando o corpus acessível
   permite, relocalizando citações com diferenças de superfície (caixa,
   espaços, prefixos de locutor, fonte declarada errada) e sugerindo
   substituição pelo trecho exato antes de declarar a não ocorrência;
+- gera o mapa temático em três colunas como SVG vetorial e PNG de 1448 × 1086,
+  com encaixe automático de texto (redução de fonte em passos de 0,5 px);
 - registra proveniência, delegação de IA, limites, privacidade e intervenções;
 - oferece rotas autônoma, por checkpoints, de início humano e paralela cega.
 
@@ -30,11 +34,16 @@ acordo com o que realmente ocorreu.
 
 - `SKILL.md`: contrato principal da execução.
 - `referencias/`: documentos metodológicos carregados progressivamente
-  (fundamentação, hierarquia, qualidade, confiabilidade, IA em ATR etc.).
+  (fundamentação, hierarquia, qualidade, confiabilidade, IA em ATR,
+  visualizações etc.).
 - `templates/`: um template para cada fase F0–F6.
 - `scripts/verificar_citacoes.py`: inventário do corpus e verificação literal
   de citações, usando apenas a biblioteca padrão do Python.
-- `testes/`: 21 cenários adversariais e testes de integridade.
+- `scripts/gerar_mapa_tematico.py`: gera o mapa temático em SVG e PNG a partir
+  de um JSON de estrutura, com medição de texto pela fonte real (Pillow
+  opcional; cairosvg e Inkscape também são aceitos para o PNG).
+- `testes/`: 21 cenários adversariais e testes de integridade, incluindo
+  testes executáveis dos scripts.
 
 ## Instalação
 
@@ -55,7 +64,7 @@ git clone --depth 1 https://github.com/labiia-lab/analise-tematica-reflexiva.git
 A partir da raiz do repositório:
 
 ```bash
-python -m py_compile scripts/verificar_citacoes.py
+python -m py_compile scripts/verificar_citacoes.py scripts/gerar_mapa_tematico.py
 python -m unittest discover -s testes -p "test_*.py"
 ```
 
