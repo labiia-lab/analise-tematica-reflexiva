@@ -53,6 +53,22 @@ Tratar zonas de ambiguidade ou instabilidade como sinais epistêmicos a investig
 
 Convergência entre modelos ou passes pode refletir treinamento, prompt ou vocabulário compartilhado. Não chamar isso de triangulação humana nem de validação.
 
+### Autoaprovação
+
+O sistema que escreveu a fase tende a aprová-la. Rivais que não ameaçam o mapa, condições de derrota nunca atingidas e portões que sempre passam são o sintoma. Controlar com contextos limpos para rival, contestador e avaliador, condições de derrota escritas por quem contesta e ranking forçado na avaliação. Quando não houver como separar, rotular: rival `informada`, portões `autoavaliação`.
+
+### Ancoragem na primeira leitura
+
+Temas esboçados na familiarização atravessam a codificação sem teste. Registrar hipóteses em F1 e dar destino a cada uma em F5.
+
+### Homogeneização entre casos
+
+Em estudos com vários casos, o mapa do primeiro vira molde dos seguintes. Isolar os casos, exigir o que é específico de cada um e medir a semelhança entre relatórios.
+
+### Voz mediada tratada como fala
+
+Notas de moderador, resumos e fichamentos entram no corpus com a voz de quem os escreveu, inclusive outra IA. Registrar o estatuto de cada fonte e não citar registro mediado como fala de participante.
+
 ### Confusão entre níveis
 
 Modelos podem misturar excerto, código, categoria e tema. Preservar a hierarquia e exigir conceito organizador para temas.
@@ -107,5 +123,7 @@ Achados usados como âncoras:
 - Pretorius e Pretorius (2025): diálogo pode reconfigurar a leitura, sem virar requisito para toda rota.
 - Kempny et al. (2026): relato de modelos e parâmetros é frequentemente incompleto.
 - Costa e Bem-Haja (2025): incerteza pode ser preservada como sinal epistêmico.
+
+A literatura de comparação também registra evidência concentrada no início das transcrições, excertos curtos e sem contexto, e avaliação circular quando um modelo julga a própria saída. Esses achados orientam a matriz de distribuição, a janela de contexto obrigatória e a separação entre quem produz e quem avalia; as referências específicas devem ser conferidas na fonte antes de qualquer citação.
 
 HEC, sycophancy, ilusão de significados, sweet spot, TROUT-AI, responsabilidade algorítmica e correflexão funcionam aqui como conceitos sensibilizadores e controles. Antes de citá-los em manuscrito acadêmico, verificar a referência primária correspondente. A skill não transforma esses conceitos em escalas validadas.

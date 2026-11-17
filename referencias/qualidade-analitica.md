@@ -7,7 +7,7 @@
 3. Temas
 4. Rigor e auditabilidade
 5. Erros recorrentes
-6. Gates por fase
+6. Portões por fase
 7. Auditoria final
 
 ## 1. Três camadas de qualidade
@@ -19,6 +19,8 @@ Avaliar cumulativamente:
 3. **Qualificação da IA:** rastreabilidade, contestabilidade e conservação experiencial.
 
 A terceira camada não corrige falhas nas duas primeiras. Uma análise superficial com boa documentação continua superficial.
+
+As duas primeiras camadas são avaliadas pela rubrica graduada de `referencias/rubrica-e-ancoras.md`, por avaliador em contexto limpo. A terceira é, em boa parte, conferida por `scripts/auditar_analise.py`.
 
 ## 2. Códigos
 
@@ -78,7 +80,11 @@ Os dados não precisam dizer a mesma coisa. Precisam participar de uma relação
 
 ### Distinção externa
 
-Perguntar o que se perderia se dois temas fossem fundidos. Se nada substantivo se perde, revisar fronteiras.
+Perguntar o que se perderia se dois temas fossem fundidos. Se nada substantivo se perde, fundir.
+
+### Quantidade de temas
+
+Não há número certo nem mínimo. Dois temas densos podem responder melhor do que seis rasos. Muitos temas costumam indicar que códigos ou assuntos foram promovidos a tema; por isso o auditor alerta acima de oito. Reduzir o número juntando temas sem conceito organizador comum troca um problema por outro.
 
 ### Casos divergentes
 
@@ -144,19 +150,26 @@ Para humanos, registrar posição, relações, experiência e escolhas. Para IA,
 
 Evitar deferência e moralização. Uma versão institucional pode ser relevante sem ser automaticamente verdadeira; uma contestação pode ser forte sem acusar participantes de mentira ou intenção oculta.
 
-## 6. Gates por fase
+## 6. Portões por fase
 
-Usar `PASS`, `FAIL` ou `N/A` e anexar uma evidência curta. Um `FAIL` permite continuar o fluxo e produzir diagnóstico, mas bloqueia “análise completa” e “pronta para manuscrito”.
+Cada fase tem um portão computado e um interpretativo, registrados em separado.
 
-| Fase | Requisito duro | Falha que impede aprovação |
-|---|---|---|
-| F0 | escopo, decisões, delegação, riscos e limites explícitos | inventar autorização, modelo, parâmetro ou posição |
-| F1 | manifesto reconciliado com intervalos, lotes e memos | ler amostra e alegar corpus integral |
-| F2 | códigos específicos, localizados e distribuídos | código material sem fonte/localização |
-| F3 | conceito organizador e afirmação por tema | tópico, pergunta ou resumo de domínio |
-| F4 | rival material, estatuto correto e condições de derrota testadas | rival ausente, caricatural, falsamente independente ou incapaz de ameaçar o mapa |
-| F5 | passaporte e âncoras verificadas | tema sem genealogia ou citação não verificada |
-| F6 | relato proporcional e estatutos separados | sobrealegação ou literalidade não demonstrada |
+- **Computado:** `PASS`, `FAIL` ou `N/A`, com o arquivo do auditor ou do verificador que comprova.
+- **Interpretativo:** `forte`, `adequado`, `frágil` ou `insuficiente` por critério da rubrica, com trecho de evidência, tema mais fraco e problema mais grave. `insuficiente` conta como `FAIL` substantivo.
+
+Um `FAIL` permite continuar o fluxo e produzir diagnóstico, mas bloqueia “análise completa” e “pronta para manuscrito”.
+
+| Fase | Portão computado | Portão interpretativo | Falha que impede aprovação |
+|---|---|---|---|
+| F0 | manifesto gerado; aptidão corrigida | decisões, estatuto das fontes, contaminação e limites explícitos | inventar autorização, modelo, parâmetro ou posição |
+| F1 | leitura reconciliada com o manifesto | memos por fonte; hipóteses sem lista de temas | ler amostra e alegar corpus integral |
+| F2 | excertos `verified_exact`; registro sem erros | códigos específicos e além do instrumento de coleta | código sem excerto verificado; codificar de memória |
+| F3 | temas candidatos no registro | classificação de cada tema: padrão de significado, misto ou resumo de tópico | tópico, pergunta ou resumo de domínio mantido como tema |
+| F4 | diferença entre candidatos e finais calculada | rival material; condições de derrota de quem contesta; contraevidência, exclusão e fusão registradas | rival ausente, caricatural ou falsamente independente |
+| F5 | nenhum código órfão; âncoras literais; hipóteses com destino | passaporte; adequação de cada par excerto–afirmação | tema sem genealogia; âncora que não sustenta a afirmação |
+| F6 | nenhuma citação fora do registro; sem marcadores de template | rubrica de relatório e checklist de relato | sobrealegação mantida sem resposta; literalidade não demonstrada |
+
+Um portão avaliado por quem produziu a fase é autoavaliação e deve ser rotulado assim. Portões que passam sempre, sem nenhum problema apontado, indicam avaliação não feita.
 
 Aplicar bloqueio à alegação, não ao arquivo:
 
@@ -177,6 +190,9 @@ Aplicar bloqueio à alegação, não ao arquivo:
 - [ ] Excertos publicados estão `verified_exact`.
 - [ ] Rivais e resíduos foram tratados.
 - [ ] O estatuto da rival é independente, informada ou ausente sem ambiguidade.
+- [ ] O efeito da contestação (estrutural ou sem efeito estrutural) está declarado.
+- [ ] Portões computados e interpretativos estão separados, com avaliador identificado.
+- [ ] Nenhum registro de mediador, resumo ou paráfrase aparece como fala.
 - [ ] Todos os `FAIL` aparecem no estatuto final.
 - [ ] O texto apresenta argumento, não inventário.
 - [ ] Limitações não foram convertidas em promessas.

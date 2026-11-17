@@ -1,98 +1,106 @@
 # F5 — Temas finais e passaportes
 
+Guia de uso: roteiro de campos. Genealogia e contagens vêm do registro de evidências. Apagar guias e colchetes na saída.
+
 ## 1. Arquitetura final
 
-| ID | Tema final | Conceito organizador | Afirmação | Relação com a pergunta |
+| ID | Tema final | Conceito organizador | Este tema argumenta que | Relação com a pergunta |
 |---|---|---|---|---|
 | TF1 |  |  |  |  |
 
 ## 2. Narrativa integradora
 
-[Explicar como os temas constroem conjuntamente a resposta analítica.]
+[Como os temas constroem, juntos, a resposta à pergunta.]
 
 ## 3. Passaporte contestável
 
 ### [ID — nome]
 
-**Conceito organizador central:**  
+**Conceito organizador central:**
 
-**Afirmação interpretativa:**  
+**Afirmação interpretativa:**
 
-**Genealogia:**
-
-- códigos principais:
-- tema(s) candidato(s):
-- mudanças após F4:
+**Genealogia:** apontar a seção do tema em `genealogia.md` e resumir as mudanças após F4.
 
 **Excertos-âncora verificados:**
 
-| ID | Excerto literal | Fonte/localização | Verificação | Função analítica |
-|---|---|---|---|---|
-| Q001 |  |  | verified_exact |  |
+| ID | Excerto literal | Fonte/localização | Verificação | Adequação | O que o excerto faz no argumento |
+|---|---|---|---|---|---|
+| Q001 |  |  |  |  |  |
 
-**Rival interpretativa mais forte:**  
+**Excertos que tensionam o tema, ou busca registrada:**
 
-**Estatuto da rival:** independente | informada | ausente  
+**Rival interpretativa mais forte:**
 
-**Evidência decisiva da escolha:**  
+**Estatuto da rival:** independente | informada | ausente
 
-**Resíduo experiencial e interpretativo:**  
+**Evidência decisiva da escolha (somente excertos literais):**
+
+**Resíduo experiencial e interpretativo:**
 
 **Tratamento do resíduo:** reincorporado | preservado como tensão | deslocado | excluído com justificativa
 
 **Decisão:** manter | revisar | dividir | fundir | abandonar
 
-**Zona de incerteza:**  
+**Zona de incerteza:**
 
-**Participação humana:**  
+**Participação humana:**
 
-[Repetir para cada tema.]
+## 4. Checagem de adequação
 
-## 4. Relações e fronteiras
+Feita por avaliador que recebe apenas excerto, contexto e afirmação.
+
+| Excerto | Afirmação que deveria sustentar | Resposta | Razão | Ação |
+|---|---|---|---|---|
+| Q001 |  |  |  |  |
+
+Respostas: sustenta, tensiona, não se relaciona. “Não se relaciona” exige trocar o excerto ou reescrever a afirmação; “tensiona” exige tratar a tensão no texto.
+
+## 5. Relações e fronteiras
 
 | Par de temas | Relação | Diferença decisiva | Sobreposição aceita |
 |---|---|---|---|
 |  |  |  |  |
 
-## 5. Mapa final
+## 6. Distribuição da evidência
 
-```text
-Resposta integradora
-├── Tema final 1
-│   └── tensão preservada
-├── Tema final 2
-└── Tema final 3
-```
+Colar a matriz tema por fonte devolvida pelo auditor e responder a cada alerta:
 
-## 6. Registro de interação com IA
+| Alerta | Leitura | O que foi feito |
+|---|---|---|
+|  |  |  |
+
+## 7. Destino das hipóteses de F1
+
+| ID | Hipótese | Destino | Evidência | O que mudou no registro por causa disso |
+|---|---|---|---|---|
+| H1 |  |  |  |  |
+
+Destinos: mantida, revista, derrubada. Se nenhuma foi revista ou derrubada, explicar por que a primeira leitura resistiu ao corpus inteiro e à contestação.
+
+## 8. Mapa final
+
+[Mapa textual, Mermaid ou tabela de relações entre os temas finais e a resposta integradora.]
+
+## 9. Registro de interação com IA
 
 | ID | Fase/função | Ambiente/modelo | Objetivo e prompt sanitizado | Fontes por ID | Artefato | Verificação | Intervenção humana/efeito |
 |---|---|---|---|---|---|---|---|
 |  | F5 |  |  |  |  |  |  |
 
-## 7. Gate F5
+## 10. Portões F5
 
-| Requisito | PASS/FAIL/N/A | Evidência |
+| Portão | Resultado | Evidência | Avaliador |
+|---|---|---|---|
+| computado: sem código órfão, âncoras literais e verificadas, hipóteses com destino |  |  | script |
+| interpretativo: rubrica de temas, por tema |  |  |  |
+
+| Tema | Classificação do avaliador | Trecho que decide |
 |---|---|---|
-| passaporte completo por tema |  |  |
-| genealogia e fronteiras explícitas |  |  |
-| âncoras `verified_exact` |  |  |
-| rival, resíduo e incerteza visíveis |  |  |
+| TF1 |  |  |
 
-Arquivos de verificação: `citacoes.jsonl` e `verificacao-citacoes.jsonl`.
+- Tema mais fraco:
+- Problema mais grave da fase:
+- Afirmação mais exposta:
 
-## 8. Exemplo curto
-
-**Tema:** A opinião precisa mostrar seu caminho  
-**Rival:** faixas de renda produziriam critérios fixos e opostos de competência política.  
-**Decisão:** rejeitar o determinismo; fontes verificáveis e experiência cotidiana aparecem como formas móveis de prestar contas pelo julgamento.  
-**Resíduo:** a fala “depende do contexto” não é mero vazio; limita generalizações e permanece como tensão.
-
-## 9. Critério de saída
-
-- [ ] Cada tema possui conceito, afirmação e fronteira.
-- [ ] Cada passaporte está completo.
-- [ ] Excertos-âncora estão `verified_exact` e localizados.
-- [ ] Rival, evidência decisiva e resíduo estão visíveis.
-- [ ] Não há confiança numérica.
-- [ ] O mapa final preserva complexidade sem redundância.
+Arquivos: `evidencias.jsonl`, `genealogia.md`, `citacoes.jsonl`, `verificacao-citacoes.jsonl`, `auditoria-integridade.json`. Não usar confiança numérica.

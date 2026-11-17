@@ -13,14 +13,15 @@
 | Fonte | Achado usado | Decisão da skill | Limite |
 |---|---|---|---|
 | Braun e Clarke (2006, 2019) | analista ativo, recursividade, temas construídos | invariantes e F0–F6 | não fornece protocolo de IA |
+| Braun e Clarke (2006, 2021) | critérios de boa prática e perguntas de avaliação | checklist de relato e rubrica | adaptação resumida; conferir a fonte |
 | Byrne (2021) | demonstração concreta das fases | templates e exemplo | exemplo não substitui julgamento |
 | Kiger e Varpio (2020) | clareza operacional | distinções e fluxo | guia amplo, não exclusivo de ATR |
 | Nowell et al. (2017) | transparência e trilha de auditoria | reconstrução do processo | não exigir resultados idênticos |
 | Naeem et al. (2025) | decomposição passo a passo | fases e registros | estrutura não garante profundidade |
-| Nguyen-Trung (2025) | prompts detalhados e confusão entre níveis | hierarquia e gates | abordagem próxima de template analysis |
+| Nguyen-Trung (2025) | prompts detalhados e confusão entre níveis | hierarquia e portões | abordagem próxima de template analysis |
 | Jowsey et al. (2025) | fabricação de citações e cobertura parcial | verificação literal e inventário | não estima taxa universal |
 | Wachinger et al. (2025) | acomodação e profundidade desigual | rival e advogado do diabo | comparação contextual |
-| Vikan et al. (2026) | códigos superficiais e citações problemáticas | gates e auditoria | modelos e corpus específicos |
+| Vikan et al. (2026) | códigos superficiais e citações problemáticas | portões e auditoria | modelos e corpus específicos |
 | Sakaguchi et al. (2025) | dificuldade cultural | guardião experiencial | contexto clínico japonês |
 | Pretorius e Pretorius (2025) | diálogo reconfigura leitura | rotas humana e paralela | diálogo não é obrigatório |
 | Kempny et al. (2026) | relato incompleto de parâmetros | manifesto e log | revisão não valida resultados |
@@ -36,12 +37,22 @@ Não atribuir a um artigo isolado:
 - tríade rastreabilidade–contestabilidade–conservação;
 - circuito de uma rodada adversarial e revisão dirigida;
 - combinação das quatro rotas com duas profundidades;
-- separação formal entre fluxo, cobertura, evidência, contestação, participação, validação e prontidão.
+- separação formal entre fluxo, cobertura, evidência, contestação, participação, validação e prontidão;
+- separação de papéis em contextos limpos e perfis de execução isolado e sequencial;
+- registro único de evidências com genealogia gerada e auditoria computável;
+- estatuto das fontes e regra de voz mediada;
+- condições de derrota escritas por quem contesta, testes de exclusão e de fusão e rótulo de contestação sem efeito estrutural;
+- rubrica graduada com ranking forçado e âncoras contrastivas;
+- teste de aptidão, registro de hipóteses e de contaminação;
+- isolamento entre casos, seção “o que só existe aqui” e detector de semelhança entre relatórios.
+
+Esses controles respondem a falhas observadas em execuções da própria skill: temas que repetiam o roteiro de coleta, contestação que não alterava o mapa, citações do relatório fora do conjunto verificado, portões sempre aprovados pelo sistema que produziu a fase e relatórios de casos diferentes com a mesma arquitetura.
 
 ## Referências essenciais
 
 - BRAUN, Virginia; CLARKE, Victoria. Using thematic analysis in psychology. *Qualitative Research in Psychology*, v. 3, n. 2, p. 77–101, 2006. DOI: 10.1191/1478088706qp063oa.
 - BRAUN, Virginia; CLARKE, Victoria. Reflecting on reflexive thematic analysis. *Qualitative Research in Sport, Exercise and Health*, v. 11, n. 4, p. 589–597, 2019. DOI: 10.1080/2159676X.2019.1628806.
+- BRAUN, Virginia; CLARKE, Victoria. One size fits all? What counts as quality practice in (reflexive) thematic analysis? *Qualitative Research in Psychology*, v. 18, n. 3, p. 328–352, 2021. DOI: 10.1080/14780887.2020.1769238.
 - BYRNE, David. A worked example of Braun and Clarke’s approach to reflexive thematic analysis. *Quality & Quantity*, v. 56, p. 1391–1412, 2022. DOI: 10.1007/s11135-021-01182-y.
 - KIGER, Michelle E.; VARPIO, Lara. Thematic analysis of qualitative data: AMEE Guide No. 131. *Medical Teacher*, v. 42, n. 8, p. 846–854, 2020. DOI: 10.1080/0142159X.2020.1755030.
 - NOWELL, Lorelli S. et al. Thematic Analysis: Striving to Meet the Trustworthiness Criteria. *International Journal of Qualitative Methods*, v. 16, 2017. DOI: 10.1177/1609406917733847.

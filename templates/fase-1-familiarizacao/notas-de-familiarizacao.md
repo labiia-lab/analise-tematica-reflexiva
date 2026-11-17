@@ -1,87 +1,78 @@
 # F1 — Familiarização
 
+Guia de uso: roteiro de campos. Escrever a partir do corpus; apagar guias e colchetes na saída.
+
 ## 1. Reconciliação do corpus
 
-Manifesto de identidade: `manifesto-corpus.jsonl`
+Manifesto de identidade: `manifesto-corpus.jsonl`. Leitura declarada: `leitura.jsonl`.
 
-| ID | Fonte/hash no manifesto | Percorrida integralmente? | Unidades/intervalo | Lote | Memo | Evidência de processamento | Problema de acesso |
-|---|---|---|---|---|---|---|---|
-| F01 |  |  |  |  |  |  |  |
+| ID | Fonte | Intervalo lido | Lote | Memo | Problema de acesso |
+|---|---|---|---|---|---|
+| F01 |  |  |  |  |  |
 
-- Cobertura alcançada:
-- Fontes não lidas e motivo:
+- Cobertura devolvida pelo auditor:
+- Fontes incompletas e motivo:
 - Consequência para o estatuto:
 
-O manifesto comprova quais bytes foram inventariados, não prova leitura. A evidência de processamento reúne memos, intervalos e lotes para tornar a alegação reconferível; não a transforma em validação independente.
+O manifesto comprova quais bytes foram inventariados; não prova leitura. Intervalos, lotes e memos são a evidência de processamento: tornam a alegação reconferível, sem transformá-la em validação independente.
 
 ## 2. Memo por fonte
 
-### [ID/fonte]
+### [ID da fonte]
 
-- contexto necessário;
-- movimentos, acontecimentos ou argumentos;
+- situação de produção: quem fala, a quem, provocado por quê;
+- o que acontece na fonte, na ordem em que acontece;
 - hesitações, contradições e mudanças de posição;
-- linguagem situada ou metáforas;
-- relação inicial com a pergunta;
-- ideias provisórias de código;
+- palavras e imagens que são desta fonte;
+- o que surpreende em relação às fontes anteriores;
 - dúvidas que exigem retorno.
 
-[Repetir por fonte ou lote, sem transformar o memo em resumo mecânico.]
+Guia: um memo por fonte ou lote, escrito antes de abrir a fonte seguinte. Se dois memos puderem trocar de lugar sem que ninguém perceba, não são memos, são um molde.
 
 ## 3. Síntese transversal
 
-- padrões iniciais;
-- diferenças relevantes;
-- tensões;
-- ausências observáveis, sem inferir silêncios não documentados;
-- elementos inesperados;
-- questões que mudaram durante a leitura.
+- diferenças relevantes entre fontes:
+- tensões:
+- ausências observáveis, sem inferir silêncios não documentados:
+- efeito do dispositivo de coleta sobre o que foi dito:
+- o que mudou na leitura do início para o fim:
 
-## 4. Primeiros resíduos possíveis
+Guia: não nomear temas nem desenhar o mapa aqui.
+
+## 4. Hipóteses de leitura
+
+Gravar cada uma no registro de evidências como `hipotese`, com destino `pendente`.
+
+| ID | O que a leitura faz esperar encontrar | De onde veio (corpus, pedido, contaminação) |
+|---|---|---|
+| H1 |  |  |
+
+Guia: hipótese é expectativa a testar. Em F5 cada uma recebe destino com evidência.
+
+## 5. Primeiros resíduos possíveis
 
 | Fragmento/experiência | Por que pode ser apagado | Onde retomar |
 |---|---|---|
-|  |  | F2/F3/F4 |
+|  |  |  |
 
-Não criar inventário exaustivo. Registrar somente elementos que possam alterar significado.
+## 6. Memo reflexivo
 
-## 5. Memo reflexivo
+- como a pergunta dirigiu a atenção:
+- que expectativa de F0 a leitura contrariou, e em que fonte:
+- o que do registro de contaminação reapareceu na leitura:
+- limites do agente ou do ambiente nesta fase:
 
-- como a pergunta dirigiu a atenção;
-- teorias ou hipóteses que ganharam força;
-- partes do corpus que resistem às expectativas;
-- diferenças entre familiaridade e interpretação;
-- limitações do agente ou do ambiente.
-
-## 6. Registro de interação com IA
+## 7. Registro de interação com IA
 
 | ID | Fase/função | Ambiente/modelo | Objetivo e prompt sanitizado | Fontes por ID | Artefato | Verificação | Intervenção humana/efeito |
 |---|---|---|---|---|---|---|---|
 |  | F1 |  |  |  |  |  |  |
 
-## 7. Gate F1
+## 8. Portões F1
 
-| Requisito | PASS/FAIL/N/A | Evidência |
-|---|---|---|
-| inventário reconciliado com cobertura |  |  |
-| todas as fontes acessíveis percorridas |  |  |
-| memos contextualizados produzidos |  |  |
-| subconjunto e limitações delimitados |  |  |
+| Portão | Resultado | Evidência | Avaliador |
+|---|---|---|---|
+| computado: leitura reconciliada com o manifesto |  |  | script |
+| interpretativo: envolvimento, abertura, atenção ao dispositivo |  |  |  |
 
 Cobertura parcial recebe `FAIL` para integralidade, ainda que o fluxo continue.
-
-## 8. Exemplo curto
-
-> Padrão inicial: alguns participantes fundamentam a autoridade para opinar em experiências cotidianas; outros enfatizam rastrear fontes. Tensão: dizer “não sei” pode ser lido como desinteresse ou como responsabilidade epistêmica. A interpretação permanece aberta.
-
-Ver `referencias/exemplo-integrado.md`.
-
-## 9. Critério de saída
-
-- [ ] Todas as fontes acessíveis foram percorridas.
-- [ ] Há memos contextualizados, não apenas resumos.
-- [ ] A síntese preserva diferenças.
-- [ ] Ideias provisórias não foram tratadas como temas finais.
-- [ ] A posição analítica foi registrada.
-- [ ] A cobertura corresponde ao inventário de F0.
-- [ ] Uma correção dirigida foi feita ou a ressalva permanece visível.

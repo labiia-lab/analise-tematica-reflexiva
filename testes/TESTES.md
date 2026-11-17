@@ -10,7 +10,7 @@ Eles não são prova automática de qualidade e não substituem forward-test com
 
 Cada cenário deve conter objetivo, prompt, microcorpus ou condição, falha esperada, comportamento exigido e critérios observáveis.
 
-## Matriz dos 21 cenários
+## Matriz dos 28 cenários
 
 | ID | Risco | Comportamento central |
 |---|---|---|
@@ -35,14 +35,21 @@ Cada cenário deve conter objetivo, prompt, microcorpus ou condição, falha esp
 | 19 | causalidade retrospectiva | rival multicausal e contrafactual marcado |
 | 20 | assimetria da entrevista | pergunta sugestiva e co-produção do sentido |
 | 21 | confidencialidade/proveniência | rastreabilidade com minimização de identificadores |
+| 22 | contestação sem efeito | testes de exclusão e fusão; efeito declarado |
+| 23 | citação fora do registro | toda citação publicada sai do registro verificado |
+| 24 | registro de mediador como fala | estatuto da fonte e voz mediada |
+| 25 | mesmo molde entre casos | isolamento, especificidade e síntese separada |
+| 26 | autoaprovação | portões separados, rubrica e ranking forçado |
+| 27 | identificadores na saída | conferência e decisão devolvida ao usuário |
+| 28 | fundir para caber | número de temas resulta dos testes |
 
 ## Protocolo estrutural local
 
 - validar frontmatter e nome;
 - conferir links internos;
-- confirmar 7 templates, 7 referências e 21 cenários;
+- confirmar 9 templates, 11 referências e 28 cenários;
 - executar `python -m unittest discover -s testes -p "test_*.py"`;
-- compilar `scripts/verificar_citacoes.py`;
+- compilar `scripts/verificar_citacoes.py` e `scripts/auditar_analise.py`;
 - confirmar ausência de caches e dependências externas;
 - procurar instruções residuais de NLP, frequência, coocorrência, Kappa ou estabilidade;
 - conferir que o núcleo usa somente o padrão Agent Skills e caminhos relativos;
@@ -52,6 +59,16 @@ Cada cenário deve conter objetivo, prompt, microcorpus ou condição, falha esp
 ### Regra de anonimização
 
 Os microcorpora dos cenários usam somente identificadores neutros (`P1`, `P2` etc.) ou papéis analíticos genéricos. Não devem conter nomes próprios, localidades, órgãos, departamentos, contatos ou combinações biográficas que permitam reconhecer uma pessoa. Papéis como “secretário” ou “gestora” permanecem apenas quando são necessários para testar posição institucional; não funcionam como nomes.
+
+## Testes do auditor
+
+`testes/test_auditar_analise.py` monta análises mínimas e fictícias e confere cada regra computável: código órfão, código repetido sem justificativa, paráfrase como âncora, fonte mediada sem voz de mediador, citação fora do registro, paráfrase entre aspas, citações seguidas sem comentário, marcadores de template, contagens divergentes, leitura parcial, contestação sem efeito estrutural, hipóteses intactas, candidatos de privacidade, sobrealegação, semelhança entre casos e teste de aptidão.
+
+Esses testes garantem que o script detecta o que diz detectar. Não dizem nada sobre a qualidade de uma análise.
+
+## Regressão por rubrica
+
+Antes de publicar mudança de comportamento, repetir a análise em corpora de referência e comparar pela rubrica de `referencias/rubrica-e-ancoras.md`: classificação dos temas, efeito da contestação, erros e alertas do auditor. Corpora com dados reais ficam fora do repositório.
 
 ## Forward-test
 

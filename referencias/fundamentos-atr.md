@@ -77,6 +77,8 @@ Padrão de significado compartilhado organizado por um conceito central e relaci
 - transposição de uma pergunta do roteiro;
 - rótulo demográfico sem argumento.
 
+Não há número mínimo nem ideal de temas. Poucos temas densos valem mais do que muitos temas finos.
+
 ## 4. Seis fases recursivas
 
 ### Familiarização
