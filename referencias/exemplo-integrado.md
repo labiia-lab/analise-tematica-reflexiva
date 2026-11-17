@@ -2,6 +2,8 @@
 
 ## Aviso obrigatório
 
+Este exemplo ilustra o raciocínio analítico de F0 a F6 em escala reduzida. Ele não reproduz o registro de evidências, a avaliação em contexto limpo, a separação entre relatório e dossiê nem os testes de exclusão e fusão desta versão; para esses, seguir `SKILL.md` e os templates. Não copiar frases do exemplo para uma análise real.
+
 Este exemplo foi inspirado por leitura qualitativa de transcrições políticas reais disponibilizadas pelo autor da skill. Todas as falas abaixo foram **parafraseadas, combinadas e ficcionalizadas**. Não há nomes próprios nem identificadores diretos; localidades, profissões e detalhes biográficos também não são atribuídos a pessoas reais.
 
 O corpus não constitui dado empírico, não representa participantes individuais e não pode ser citado como resultado da pesquisa original. Sua finalidade é exclusivamente pedagógica.

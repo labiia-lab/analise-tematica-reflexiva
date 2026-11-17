@@ -1,34 +1,66 @@
 # F2 — Codificação reflexiva
 
+Guia de uso: roteiro de campos. A tabela de códigos é gerada do registro de evidências; não digitar genealogia à mão. Apagar guias e colchetes na saída.
+
 ## 1. Estratégia
 
 - orientação aplicada:
 - granularidade:
 - unidade prática de codificação:
+- tamanho dos lotes:
 - material humano usado:
 - ajustes feitos durante a fase:
 
-## 2. Registro de códigos
+## 2. Ordem de trabalho em cada lote
 
-| ID | Código | Tipo | ID da citação | Excerto literal | Fonte/localização | Verificação | Nota interpretativa | Origem |
-|---|---|---|---|---|---|---|---|---|
-| C01 |  | semântico/latente | Q001 |  |  | verified_exact/não verificado |  | IA/humano/revisado |
+1. gravar os excertos no registro, com fonte, localizador, contexto, falante e forma;
+2. exportar e verificar as citações do lote;
+3. corrigir o que não estiver `verified_exact`;
+4. só então criar ou revisar códigos apontando para esses excertos.
 
-Permitir múltiplas linhas para um excerto e múltiplos excertos para um código. Não exigir frequência mínima.
+- Lotes concluídos e resultado da verificação de cada um:
 
-## 3. Genealogia e revisões
+## 3. Códigos
 
-| Código inicial | Ação | Código resultante | Motivo | Evidência |
+Inserir a tabela gerada por `auditar_analise.py tabelas` ou apontar `genealogia.md`.
+
+- total de códigos por estado (`ativo`, `fundido`, `recusado`, `residuo`):
+- excertos literais e paráfrases:
+- excertos de fonte mediada e como estão marcados:
+
+## 4. Notas interpretativas
+
+### [ID do código — rótulo]
+
+- o que no excerto justifica o rótulo:
+- o que o código deixa de fora:
+- semântico, latente ou os dois:
+
+Guia: nota para os códigos que carregam interpretação, não para todos.
+
+## 5. Revisões
+
+| Código inicial | Ação | Código resultante | Motivo | Excerto que motivou |
 |---|---|---|---|---|
-|  | manter/revisar/fundir/dividir/abandonar |  |  |  |
+|  |  |  |  |  |
 
-## 4. Códigos raros e casos difíceis
+## 6. Teste dos rótulos
+
+Para cada código ativo, responder no registro ou aqui:
+
+- caberia em quase qualquer fala sobre o assunto?
+- repete uma pergunta do instrumento de coleta, ou é um par a favor/contra?
+- lido sem o excerto, ainda diz o que importa?
+
+Guia: “sim” nas duas primeiras ou “não” na terceira manda o código de volta aos excertos. Comparar com os pares contrastivos de `referencias/rubrica-e-ancoras.md`.
+
+## 7. Códigos raros e casos difíceis
 
 | Código/excerto | Tensão | Relevância possível | Decisão provisória |
 |---|---|---|---|
 |  |  |  |  |
 
-## 5. Material humano
+## 8. Material humano
 
 | Item fornecido | Mantido? | Transformação | Divergência da IA | Efeito |
 |---|---|---|---|---|
@@ -36,52 +68,25 @@ Permitir múltiplas linhas para um excerto e múltiplos excertos para um código
 
 Preencher somente na rota de início humano ou checkpoints.
 
-## 6. Cobertura
+## 9. Memo analítico
 
-| Fonte | Segmentos relevantes codificados | Questões pendentes | Última conferência |
-|---|---|---|---|
-|  |  |  |  |
+- relações percebidas entre códigos:
+- códigos próximos que precisam permanecer distintos:
+- trechos que não cabem em nenhuma hipótese de F1:
+- o que a codificação mudou em relação à familiarização:
 
-Não usar a tabela para medir importância por contagem.
-
-## 7. Memo analítico
-
-- relações percebidas entre códigos;
-- códigos próximos que precisam permanecer distintos;
-- mudanças na pergunta ou no foco;
-- hipóteses temáticas provisórias;
-- trechos que não cabem nas hipóteses;
-- influência do pesquisador, agente ou material humano.
-
-## 8. Registro de interação com IA
+## 10. Registro de interação com IA
 
 | ID | Fase/função | Ambiente/modelo | Objetivo e prompt sanitizado | Fontes por ID | Artefato | Verificação | Intervenção humana/efeito |
 |---|---|---|---|---|---|---|---|
 |  | F2 |  |  |  |  |  |  |
 
-## 9. Gate F2
+## 11. Portões F2
 
-| Requisito | PASS/FAIL/N/A | Evidência |
-|---|---|---|
-| códigos específicos e revisáveis |  |  |
-| distribuição pelo corpus acessível |  |  |
-| fonte e localização por código material |  |  |
-| citações destinadas à publicação verificadas |  |  |
-
-## 10. Exemplo curto
-
-| ID | Código | Excerto pedagógico | Nota |
+| Portão | Resultado | Evidência | Avaliador |
 |---|---|---|---|
-| C01 | silenciar-se para evitar punição social | “Em público eu penso duas vezes; qualquer frase pode virar briga.” | silêncio como autoproteção |
-| C02 | rastrear a origem antes de assumir posição | “Antes de repetir, procuro quem escreveu e em que contexto.” | prestação de contas epistêmica |
-| C03 | experiência cotidiana autoriza julgamento | “Entendo a política quando ela aparece no trabalho e no transporte.” | vida material como credencial |
+| computado: excertos verificados e registro sem erros |  |  | script |
+| interpretativo: especificidade, distância do instrumento, alcance, lastro |  |  |  |
 
-## 11. Critério de saída
-
-- [ ] Todo material relevante e acessível foi codificado.
-- [ ] Códigos são específicos e revisáveis.
-- [ ] Excertos, localização e estado de verificação acompanham códigos materiais.
-- [ ] Códigos raros não foram descartados por raridade.
-- [ ] Material humano tem proveniência.
-- [ ] Não há auditoria de frequência ou estabilidade.
-- [ ] O memo demonstra movimento interpretativo.
+- Código mais fraco apontado pelo avaliador:
+- Problema mais grave da fase:

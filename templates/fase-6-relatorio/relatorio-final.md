@@ -1,186 +1,71 @@
-# F6 — Relatório final
+# F6 — Relatório analítico
 
-## Título
+Guia de uso: este arquivo vira `06-relatorio-final.md`, o texto que um leitor da pesquisa lê. Auditoria, passaportes e registros vão para `07-dossie-de-auditoria.md`. Apagar guias e colchetes na saída; não repetir frases deste roteiro.
 
-[Título analítico, não apenas descritivo.]
+## [Título que afirma algo sobre o que a análise construiu]
 
-## Estatuto da entrega
+**Estatuto:** [uma ou duas linhas: rota, perfil, cobertura, contestação e seu efeito, avaliação dos portões, validação humana. O detalhe está no dossiê.]
 
-- Fluxo: F0–F6 executado | interrompido
-- Cobertura: integral | parcial | indeterminada
-- Evidências: verificáveis | limitadas | inválidas
-- Contestação: independente | informada | ausente
-- Participação humana: remeter ao mapa
-- Validação humana: realizada | parcial | ausente
-- Prontidão: manuscrito | exploração | auditoria
+## Resumo
 
-Formulação máxima permitida:
+[Pergunta, corpus, delineamento, resposta central e temas, em um parágrafo.]
 
-> ATR autônoma completa no escopo declarado e auditável; redação pronta para incorporação em manuscrito; sem validação humana.
+## 1. Pergunta e corpus
 
-## Resumo analítico
+[Contexto necessário, pergunta, o que é o corpus, estatuto das fontes e o que isso permite afirmar.]
 
-[Pergunta, corpus, orientação, temas e contribuição central.]
+## 2. Como a análise foi feita
 
-## 1. Introdução e pergunta
+[Em um ou dois parágrafos: posição epistemológica, eixos, lente, o que mudou durante o processo, papel da IA e do humano. Descrever o que aconteceu, não as instruções da skill.]
 
-[Contexto necessário, objetivo e limites.]
+## 3. Visão sinóptica
 
-## 2. Método
+| Tema | Conceito organizador | Relação com os demais |
+|---|---|---|
+|  |  |  |
 
-### Delineamento de ATR
+[Ou mapa equivalente.]
 
-- posição epistemológica;
-- indução/dedução;
-- semântico/latente;
-- unidade e corpus;
-- recursividade;
-- papel humano e da IA.
+## 4. Resposta geral
 
-### Procedimento F0–F6
+[A resposta à pergunta antes dos temas, em um ou dois parágrafos.]
 
-[Descrever ações e mudanças reais, não copiar instruções da skill.]
+## 5. Temas
 
-### Contestabilidade interpretativa incorporada
+### [Nome do tema]
 
-[Explicar rival, funções executadas, integração e limite de rodadas.]
+[Afirmação: o que o tema argumenta.]
 
-## 3. Narrativa integradora
+> “[excerto literal do registro]” (fonte, localizador)
 
-[Apresentar a resposta geral antes dos temas.]
+[O que o excerto faz: o que nele sustenta a afirmação.]
 
-## 4. Resultados
+[Variação ou tensão, com o excerto que complica e o que ele muda na afirmação.]
 
-### Tema 1 — [nome]
+[O que o tema acrescenta à resposta.]
 
-**Afirmação:**  
+Guia: repetir excerto e interpretação quantas vezes o argumento pedir. Nenhum excerto sem comentário; nenhum tema com um só excerto. Se o excerto pode sair sem o parágrafo mudar, ele está ilustrando, não analisando.
 
-[Desenvolver interpretação, excertos, variação, tensão e contribuição para a pergunta.]
+## 6. Relações entre os temas
 
-> “[Excerto literal]” (Fonte/localização)
+[Como os temas agem uns sobre os outros e o que o conjunto mostra que nenhum mostra sozinho.]
 
-[Interpretar o excerto; não deixá-lo falar sozinho.]
+## 7. Diálogo com a literatura
 
-[Repetir para os demais temas.]
+[Conforme o nível escolhido em F0. Se “sem literatura”, dizer isso em uma frase e remover o restante da seção.]
 
-## 5. Relações, implicações e conclusão
+## 8. O que esta análise não pode afirmar
 
-- relação entre temas;
-- contribuição analítica;
-- limites;
-- questões abertas;
-- conclusão proporcional ao corpus.
+- sobre populações além do corpus:
+- sobre causas e mecanismos:
+- por causa do estatuto das fontes e do modo de coleta:
+- por causa da cobertura, do perfil de execução e da ausência de validação humana:
+- interpretações alternativas que continuam plausíveis:
 
-## 6. Qualidade
+## 9. Conclusão
 
-### Fidelidade à ATR
+[Proporcional ao corpus: o que se construiu, o que fica aberto.]
 
-[Coerência, recursividade, papel ativo e temas construídos.]
+## Referências
 
-### Qualidade analítica
-
-[Conceitos organizadores, riqueza, distinção, variação e narrativa.]
-
-### Tríade adicional
-
-- rastreabilidade:
-- contestabilidade:
-- conservação experiencial:
-
-## 7. Limitações
-
-- corpus e cobertura;
-- contexto;
-- modelo/ferramenta;
-- validação humana;
-- ética e consentimento;
-- interpretações alternativas remanescentes.
-
-# Apêndice auditável
-
-## A. Passaportes dos temas
-
-[Inserir os passaportes de F5.]
-
-## B. Manifesto estruturado de IA
-
-| Campo | Registro final |
-|---|---|
-| Data e ambiente |  |
-| Modelo/versão |  |
-| Parâmetros expostos |  |
-| Skill | analise-tematica-reflexiva |
-| Rota/profundidade |  |
-| Corpus processado |  |
-| Funções executadas |  |
-| Estatuto da rival |  |
-| Intervenções humanas |  |
-| Limitações |  |
-| Verificação de excertos |  |
-| Arquivos produzidos |  |
-
-## C. Matriz final de delegação
-
-| Fase | Função delegada | Nível 0–3 | Ambiente/modelo | Verificação | Papel humano |
-|---|---|---|---|---|---|
-| F0–F6 |  |  |  |  |  |
-
-## D. Registro de interação com IA
-
-| ID | Fase/função | Ambiente/modelo | Objetivo e prompt sanitizado | Fontes por ID | Artefato | Verificação | Intervenção humana/efeito |
-|---|---|---|---|---|---|---|---|
-|  |  |  |  |  |  |  |  |
-
-## E. Mapa de participação humana
-
-| Fase | Participante/papel | Intervenção | Efeito analítico | Pendente |
-|---|---|---|---|---|
-| F0–F6 |  |  |  |  |
-
-## F. Cobertura
-
-Arquivos de identidade: `manifesto-corpus.jsonl` e, se aplicável, `manifesto-derivados.jsonl`.
-
-| Fonte/hash | Intervalo processado | Memo | Evidência de processamento | Excertos verificados? | Limitação |
-|---|---|---|---|---|---|
-|  |  |  |  |  |  |
-
-## G. Verificação de citações
-
-Arquivos: `citacoes.jsonl` e `verificacao-citacoes.jsonl`.
-
-| ID | Fonte/localização | Estado | Hash da fonte | Uso no relatório |
-|---|---|---|---|---|
-|  |  | verified_exact/não verificado |  | publicado/excluído/paráfrase |
-
-## H. Decisões adversariais
-
-| Tema | Rival | Estatuto | Resíduo | Decisão | Justificativa |
-|---|---|---|---|---|---|
-|  |  | independente/informada/ausente |  |  |  |
-
-## I. Gates F0–F6
-
-| Fase | PASS/FAIL/N/A | Evidência | Avaliador/independência | Efeito no estatuto |
-|---|---|---|---|---|
-| F0–F6 |  |  | mesmo sistema/independente/humano |  |
-
-Qualquer `FAIL` substantivo bloqueia “completa” e “pronta para manuscrito”, mas não impede a entrega diagnóstica.
-Sem avaliador independente, os gates são autoavaliação auditável, não validação externa.
-
-## J. Exemplo de redação
-
-> A cautela diante da fala política não constituiu simplesmente ausência de interesse. Ela articulou duas exigências: proteger-se da transformação da discordância em ataque pessoal e demonstrar que uma opinião tinha algum caminho verificável. A análise rival permitiu separar silêncio defensivo de cuidado epistêmico; a integração mostrou que ambos participavam da disputa pelo direito de falar.
-
-Ver o caso completo em `referencias/exemplo-integrado.md`.
-
-## Checklist final
-
-- [ ] A narrativa responde à pergunta.
-- [ ] Cada tema é desenvolvido com interpretação e excertos.
-- [ ] Todas as citações publicadas estão `verified_exact`.
-- [ ] Passaportes, manifesto, delegação, interações, mapa humano, cobertura e gates estão anexados.
-- [ ] O estatuto corresponde ao trabalho realizado.
-- [ ] Limitações permanecem visíveis.
-- [ ] Markdown foi produzido.
-- [ ] Formatos adicionais solicitados foram produzidos ou a limitação foi declarada.
+[Somente o que foi citado e conferido, conforme o nível de literatura.]

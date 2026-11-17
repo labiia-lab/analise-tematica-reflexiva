@@ -19,6 +19,8 @@ class IntegridadeSkillTest(unittest.TestCase):
         self.assertFalse([name for name in forbidden if (ROOT / name).exists()])
         self.assertTrue((ROOT / "referencias" / "ia-em-at.md").is_file())
         self.assertTrue((ROOT / "scripts" / "verificar_citacoes.py").is_file())
+        self.assertTrue((ROOT / "scripts" / "auditar_analise.py").is_file())
+        self.assertTrue((ROOT / "scripts" / "aptidao" / "microcorpus.txt").is_file())
 
         markdown = "\n".join(
             path.read_text(encoding="utf-8")
@@ -48,22 +50,34 @@ class IntegridadeSkillTest(unittest.TestCase):
             "sem validação humana",
             "referencias/ia-em-at.md",
             "scripts/verificar_citacoes.py",
+            "auditar_analise.py",
+            "evidencias.jsonl",
+            "contestação sem efeito estrutural",
+            "autoavaliação",
+            "perguntar o que fazer",
+            "07-dossie-de-auditoria.md",
         ]:
             self.assertIn(token, skill)
+
+        for reference in re.findall(r"`(referencias/[\w-]+\.md|templates/[\w/-]+\.md|scripts/[\w/]+\.(?:py|md))`", skill):
+            self.assertTrue((ROOT / reference).is_file(), reference)
+        self.assertNotIn("Nunca abaixo de 4", skill)
 
         frontmatter = skill.split("---", 2)[1]
         keys = re.findall(r"^([a-zA-Z0-9_-]+):", frontmatter, flags=re.MULTILINE)
         self.assertEqual(keys, ["name", "description"])
 
-    def test_existing_behavioral_suite_count_is_unchanged(self):
+    def test_package_counts_match_documentation(self):
         scenarios = list((ROOT / "testes").glob("cenario-*.md"))
         templates = [
             path
             for path in (ROOT / "templates").rglob("*.md")
             if path.is_file()
         ]
-        self.assertEqual(len(scenarios), 21)
-        self.assertEqual(len(templates), 7)
+        references = list((ROOT / "referencias").glob("*.md"))
+        self.assertEqual(len(scenarios), 28)
+        self.assertEqual(len(templates), 9)
+        self.assertEqual(len(references), 11)
 
     def test_final_review_corrections_are_operationalized(self):
         skill = (ROOT / "SKILL.md").read_text(encoding="utf-8")
@@ -82,6 +96,9 @@ class IntegridadeSkillTest(unittest.TestCase):
         f6 = (
             ROOT / "templates" / "fase-6-relatorio" / "relatorio-final.md"
         ).read_text(encoding="utf-8")
+        dossie = (
+            ROOT / "templates" / "fase-6-relatorio" / "dossie-de-auditoria.md"
+        ).read_text(encoding="utf-8")
         quality = (ROOT / "referencias" / "qualidade-analitica.md").read_text(
             encoding="utf-8"
         )
@@ -98,11 +115,17 @@ class IntegridadeSkillTest(unittest.TestCase):
             self.assertIn(token, skill)
         self.assertIn("evidência de processamento", f1)
         self.assertIn("manifesto-corpus.jsonl", f1)
-        self.assertIn("condição de enfraquecimento ou derrota", f3)
+        self.assertIn("aposta do tema", f3)
+        self.assertIn("resumo de tópico", f3)
+        self.assertIn("condição de enfraquecimento ou derrota", f4)
+        self.assertIn("teste de exclusão", f4)
+        self.assertNotIn("4-8", f4)
         self.assertIn("condições de enfraquecimento/derrota testadas", f4)
-        self.assertIn("citacoes.jsonl", f6)
-        self.assertIn("verificacao-citacoes.jsonl", f6)
-        self.assertIn("Avaliador/independência", f6)
+        self.assertIn("O que esta análise não pode afirmar", f6)
+        self.assertNotIn("Registro de interação com IA", f6)
+        self.assertIn("citacoes.jsonl", dossie)
+        self.assertIn("verificacao-citacoes.jsonl", dossie)
+        self.assertIn("Avaliador/independência", dossie)
         self.assertIn("não prova leitura", quality)
         self.assertIn("https://ceur-ws.org/Vol-4114/7_paper.pdf", provenance)
 

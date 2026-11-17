@@ -1,14 +1,16 @@
 # F3 — Construção de temas candidatos
 
-## 1. Afirmação analítica provisória
+Guia de uso: roteiro de campos. Gravar cada tema candidato no registro de evidências. Apagar guias e colchetes na saída.
 
-[Que história geral a análise começa a construir em resposta à pergunta?]
+## 1. Resposta provisória
+
+[Que resposta à pergunta a análise começa a construir?]
 
 ## 2. Mapa principal
 
-| ID | Tema candidato | Conceito organizador | Afirmação | Códigos/excertos | Fronteira | Tensão |
+| ID | Tema candidato | Conceito organizador | Este tema argumenta que | Códigos | Fronteira | Tensão |
 |---|---|---|---|---|---|---|
-| T1 |  |  |  |  |  |  |
+| TC1 |  |  |  |  |  |  |
 
 Categorias e subtemas são opcionais. Incluir somente quando esclarecem o conceito organizador.
 
@@ -21,78 +23,59 @@ Categorias e subtemas são opcionais. Incluir somente quando esclarecem o concei
 - contribuição para a pergunta:
 - códigos e excertos centrais:
 - variações internas:
-- elementos que não pertencem:
-- sobreposição com outros temas:
+- o que não pertence ao tema:
+- vizinho mais próximo e diferença:
 - tensão mais forte:
 - possíveis resíduos experienciais:
-- condição de enfraquecimento ou derrota: [qual evidência faria revisar, fundir ou abandonar?]
-- condição de perda da fronteira: [qual evidência tornaria indistinto de outro tema?]
+- aposta do tema: o que precisa ser verdade no corpus para ele se sustentar?
 
-## 4. Agrupamentos alternativos considerados
+Guia: a aposta é escrita por quem constrói o tema. A condição de enfraquecimento ou derrota será escrita em F4 por quem contesta, sem consultar esta ficha além do nome, do conceito e da afirmação.
+
+## 4. Teste contra resumo de tópico
+
+Para cada tema, responder por escrito:
+
+| Tema | O nome afirma algo ou nomeia um assunto? | Coincide com pergunta do instrumento de coleta? | Os excertos se unem por significado ou por assunto? | Poderia ter sido escrito antes de ler o corpus? | Classificação |
+|---|---|---|---|---|---|
+| TC1 |  |  |  |  |  |
+
+Classificações: padrão de significado, misto ou resumo de tópico. Tema classificado como resumo de tópico é reconstruído antes de F4.
+
+## 5. Agrupamentos alternativos considerados
 
 | Alternativa | Por que parecia plausível | Por que não foi adotada agora | Retomar em F4? |
 |---|---|---|---|
 |  |  |  |  |
 
-Não tratar essa seção como a contestação formal de F4.
+## 6. Visão do mapa
 
-## 5. Mapa textual
+[Mapa textual, Mermaid ou tabela de relações, mostrando como os temas se ligam à pergunta e entre si.]
 
-```text
-Pergunta
-├── Tema candidato 1 — conceito organizador
-│   ├── código/excerto
-│   └── tensão
-└── Tema candidato 2 — conceito organizador
-    ├── código/excerto
-    └── tensão
-```
+## 7. Mapa rival
 
-Usar Mermaid ou recurso equivalente apenas se estiver disponível e melhorar a compreensão.
+- Produzido por: contexto limpo | passe separado | não produzido
+- Lente da rival:
+- Arquivo:
 
-## 6. Teste contra resumo de domínio
+Guia: no perfil isolado, o mapa rival nasce sem acesso a este arquivo. No sequencial, é construído em passe próprio, a partir do corpus e do registro, e rotulado como informado.
 
-Para cada tema:
-
-- poderia ser o título de uma pergunta do roteiro?
-- apenas enumera opiniões sobre um assunto?
-- existe uma frase “este tema argumenta que...”?
-- os excertos se relacionam por significado compartilhado?
-
-Reformular quando as duas primeiras respostas forem “sim” ou as duas últimas “não”.
-
-## 7. Registro de interação com IA
+## 8. Registro de interação com IA
 
 | ID | Fase/função | Ambiente/modelo | Objetivo e prompt sanitizado | Fontes por ID | Artefato | Verificação | Intervenção humana/efeito |
-|---|---|---|---|---|---|---|---|---|
+|---|---|---|---|---|---|---|---|
 |  | F3 |  |  |  |  |  |  |
 
-## 8. Gate F3
+## 9. Portões F3
 
-| Requisito | PASS/FAIL/N/A | Evidência |
+| Portão | Resultado | Evidência | Avaliador |
+|---|---|---|---|
+| computado: temas candidatos no registro, sem erro de referência |  |  | script |
+| interpretativo: rubrica de temas, por tema |  |  |  |
+
+| Tema | Classificação do avaliador | Trecho que decide |
 |---|---|---|
-| conceito organizador por tema |  |  |
-| afirmação interpretativa por tema |  |  |
-| genealogia até códigos/excertos |  |  |
-| ausência de resumos de domínio |  |  |
-| condições prévias de enfraquecimento/derrota registradas |  |  |
+| TC1 |  |  |
 
-## 9. Exemplo curto
-
-Temas candidatos:
-
-1. **Prudência antes da fala** — pessoas regulam quando se sentem autorizadas a opinar.
-2. **Experiência como credencial** — a vida cotidiana oferece lastro para julgamentos.
-3. **Respeito como limite** — a legitimidade da discordância depende de não destruir relações.
-
-F4 deverá testar se “prudência” encobre medo de sanção e se fontes e experiência pertencem a temas separados.
-
-## 10. Critério de saída
-
-- [ ] O mapa responde à pergunta.
-- [ ] Cada tema tem conceito organizador e afirmação.
-- [ ] Temas não reproduzem tópicos do roteiro.
-- [ ] Fronteiras e tensões estão registradas.
-- [ ] Cada tema declara o que poderia enfraquecê-lo, fundi-lo ou derrubá-lo.
-- [ ] Categorias e subtemas são opcionais.
-- [ ] A primeira solução não foi declarada final.
+- Tema mais fraco:
+- Problema mais grave da fase:
+- Afirmação mais exposta:

@@ -265,6 +265,9 @@ def verify(
             suggested_source=suggested["suggested_source"],
             suggested_locator=suggested["suggested_locator"],
             suggested_text=suggested["suggested_text"],
+            # O trecho sugerido é outro texto: pode não sustentar a mesma
+            # afirmação. A troca só vale depois de reavaliar a adequação.
+            reavaliar_adequacao=True,
         )
         return result, True
 

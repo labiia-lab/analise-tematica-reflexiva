@@ -23,12 +23,12 @@ Oito entrevistas com variação, contradições e múltiplas fontes.
 - manter F0–F6;
 - tratar 2.000 palavras como meta editorial não bloqueante;
 - demonstrar cobertura, memos, genealogia, rival e evidências;
-- entregar passaportes e apêndice.
+- entregar passaportes e dossiê.
 
 ## Critérios de aprovação
 
 - [ ] A profundidade escolhida é respeitada.
 - [ ] Volume não substitui qualidade.
-- [ ] A contagem de palavras não funciona como gate.
+- [ ] A contagem de palavras não funciona como portão.
 - [ ] Todas as fases têm critérios de saída.
 - [ ] A prontidão só aparece após auditoria.
